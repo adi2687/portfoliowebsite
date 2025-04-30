@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import './Hero.css';
+import FloatingShapes from './FloatingShapes';
 
 const Hero = () => {
   const nameRef = useRef(null);
@@ -37,15 +38,16 @@ const Hero = () => {
       <div className="hero-background">
         <div className="gradient-overlay"></div>
         <div className="particles"></div>
+        <FloatingShapes />
       </div>
       <div className="hero-content">
-        <p className="intro animate">Hi, my name is</p>
+        <p className="intro">Hi, my name is</p>
         <h1 className="name" ref={nameRef}>Aditya Kurani.</h1>
-        <h2 className="tagline" ref={taglineRef}>I build exceptional digital experiences.</h2>
+        <h2 className="tagline" ref={taglineRef}>Computer Science Student & Developer</h2>
         <div className="description" ref={descriptionRef}>
           <p>
-            I'm a passionate software developer with expertise in creating innovative web applications.
-            My focus is on crafting intuitive, responsive, and high-performance solutions that solve real-world problems.
+            I'm a dedicated student at IIIT Nagpur with a strong passion for software development.
+            Currently, I'm focused on building full-stack applications and enhancing my problem-solving skills.
           </p>
         </div>
         <div className="cta-buttons" ref={ctaRef}>

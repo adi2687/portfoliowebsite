@@ -7,59 +7,59 @@ const Projects = () => {
   
   const projects = [
     {
-      title: 'DhaanGo',
-      description: 'A comprehensive web application with chatbot functionality, marketplace features, and user authentication system.',
-      tech: ['React', 'PHP', 'FastAPI', 'Python', 'CSS'],
+      title: 'Outfit-AI',
+      description: 'A MERN stack web app that recommends outfits based on uploaded clothes, weather, location, age, gender, and user preferences with AI-generated images, sharing and selling features.',
+      tech: ['React JS', 'Node.js', 'MongoDB', 'BeautifulSoup', 'Selenium'],
       links: {
-        github: '#',
-        live: '#'
-      },
-      featured: true,
-      category: 'web'
-    },
-    {
-      title: 'AI Wardrobe',
-      description: 'A full-stack application with ML capabilities for clothing and fashion recommendations.',
-      tech: ['React', 'Node.js', 'Machine Learning', 'CSS'],
-      links: {
-        github: '#',
-        live: '#'
+        github: 'https://github.com/OutFit-AI',
+        live: 'https://outfit-ai.com'
       },
       featured: true,
       category: 'ai'
     },
     {
-      title: 'Appointment Booking System',
-      description: 'A healthcare appointment booking system with doctor management, patient profiles, and disease prediction functionality.',
-      tech: ['PHP', 'JavaScript', 'MySQL', 'HTML', 'CSS'],
+      title: 'Online Appointment Interface',
+      description: 'A web application that allows users to book doctor appointments and find the nearest clinic using geolocation, rate doctors, get prescriptions via email and chat with doctors.',
+      tech: ['PHP/Hack', 'SQL', 'WebSocket', 'JavaScript'],
       links: {
-        github: '#',
+        github: 'https://github.com/OnlineAppointment',
         live: '#'
       },
       featured: true,
       category: 'web'
     },
     {
-      title: 'NOVA',
-      description: 'A Python-based personal assistant with location-based features, task management, and image processing capabilities.',
-      tech: ['Python', 'Google API', 'Machine Learning'],
+      title: 'Social Media Platform',
+      description: 'A full-stack social media application where users can sign up, post updates, add friends, share posts within their network, real-time messaging, story sharing, and media sharing.',
+      tech: ['PHP/Hack', 'SQL', 'JavaScript', 'WebSocket'],
       links: {
-        github: '#',
+        github: 'https://github.com/SocialMedia',
         live: '#'
       },
-      featured: false,
-      category: 'ai'
+      featured: true,
+      category: 'web'
     },
     {
-      title: 'Social and Chat App',
-      description: 'A social networking and messaging platform with user profiles and real-time communication.',
-      tech: ['JavaScript', 'Node.js', 'Socket.io', 'MongoDB'],
+      title: 'Digital Farming Assistance',
+      description: 'A scalable web application aimed at improving farmer productivity by enabling real-time communication, providing access to essential tools and updates on schemes.',
+      tech: ['Hack', 'SQL', 'OAuth 2.0', 'REST APIs'],
       links: {
-        github: '#',
+        github: 'https://github.com/Dhsango',
         live: '#'
       },
       featured: false,
       category: 'web'
+    },
+    {
+      title: 'Virtual Voice Assistant',
+      description: 'An AI assistant with voice and text commands for system control, scheduling, and automation. Integrated with Google Calendar for reminders, task management, and media control.',
+      tech: ['Python', 'Google API', 'AI/ML'],
+      links: {
+        github: 'https://github.com/VoiceAssistant',
+        live: '#'
+      },
+      featured: false,
+      category: 'ai'
     }
   ];
 

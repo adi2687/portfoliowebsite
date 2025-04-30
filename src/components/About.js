@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import './About.css';
+import Timeline from './Timeline';
 
 const About = () => {
   const aboutRef = useRef(null);
@@ -8,12 +9,12 @@ const About = () => {
   const skillsRef = useRef(null);
   
   const skills = [
-    { name: 'JavaScript (ES6+)', level: 90 },
-    { name: 'React', level: 85 },
-    { name: 'Node.js', level: 80 },
-    { name: 'Python', level: 75 },
-    { name: 'PHP', level: 70 },
-    { name: 'SQL/NoSQL Databases', level: 85 }
+    { name: 'JavaScript', level: 90 },
+    { name: 'React JS', level: 88 },
+    { name: 'PHP/Hack', level: 85 },
+    { name: 'Python', level: 80 },
+    { name: 'C/C++', level: 75 },
+    { name: 'SQL/MongoDB', level: 85 }
   ];
   
   useEffect(() => {
@@ -54,15 +55,13 @@ const About = () => {
           <div className="about-text" ref={textRef}>
             <div className="text-content">
               <p>
-                Hello! I'm <span className="highlight">Aditya</span>, a software developer with a passion for creating digital experiences that are both functional and beautiful. 
-                My journey in tech began with a curiosity about how websites work, which led me to dive into the world of programming.
+                Hello! I'm <span className="highlight">Aditya Kurani</span>, a dedicated Computer Science student at IIIT Nagpur with a strong passion for software development. I'm proficient in multiple programming languages and actively seeking to tackle coding challenges to enhance my problem-solving skills.
               </p>
               <p>
-                I focus on building applications that solve real problems while providing intuitive, enjoyable user experiences. 
-                My experience spans across frontend and backend development, with a particular interest in React, Node.js, and modern web technologies.
+                My experience includes working as a Backend Developer Intern at eSubhalekha, where I built backend systems with PHP and Hack using MVC frameworks that supported up to 10,000 requests per day. I've also developed several full-stack applications including an AI-powered outfit recommendation app, an online appointment booking system, and a social media platform.
               </p>
               <p>
-                When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or learning about UI/UX design principles.
+                I'm committed to continuously expanding my technical knowledge to adapt to evolving industry trends. When I'm not coding, you can find me participating in hackathons (ranked 5th nationally!) or working on new project ideas.
               </p>
             </div>
             
@@ -78,15 +77,43 @@ const About = () => {
                     <div className="skill-bar">
                       <div 
                         className="skill-progress" 
-                        style={{
-                          width: `0%`,
-                          transitionDelay: `${index * 0.1}s`
-                        }}
-                        data-width={`${skill.level}%`}
+                        style={{ width: `${skill.level}%` }}
                       ></div>
                     </div>
                   </div>
                 ))}
+              </div>
+              
+              <h3 className="sub-title animate-on-scroll">Awards & Achievements</h3>
+              <div className="awards-container animate-on-scroll">
+                <div className="award-item">
+                  <i className="fas fa-trophy"></i>
+                  <div className="award-content">
+                    <h4>National Level Hackathon</h4>
+                    <p>Ranked 5th at the national level hackathon organised by IITM Gwalior</p>
+                  </div>
+                </div>
+                <div className="award-item">
+                  <i className="fas fa-medal"></i>
+                  <div className="award-content">
+                    <h4>Medecro.ai Hackathon</h4>
+                    <p>Reached the final round of a national hackathon hosted by Medecro.ai</p>
+                  </div>
+                </div>
+                <div className="award-item">
+                  <i className="fas fa-award"></i>
+                  <div className="award-content">
+                    <h4>International Youth Math Competition</h4>
+                    <p>Qualified IYMC (International Youth Math Competition) 2023</p>
+                  </div>
+                </div>
+                <div className="award-item">
+                  <i className="fas fa-code"></i>
+                  <div className="award-content">
+                    <h4>Leetcode</h4>
+                    <p>Solved 120+ questions on Leetcode</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -105,12 +132,14 @@ const About = () => {
             
             <div className="experience-box">
               <div className="experience-content">
-                <span className="experience-number">5+</span>
-                <span className="experience-text">Years of Experience</span>
+                <span className="experience-number">2+</span>
+                <span className="experience-text">Years Coding</span>
               </div>
             </div>
           </div>
         </div>
+        
+        <Timeline />
       </div>
     </section>
   );

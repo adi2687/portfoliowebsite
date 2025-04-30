@@ -397,10 +397,11 @@
   position: relative;
   height: 100%;
   border-radius: 8px;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(30px) rotateX(0) rotateY(0);
+  transform-style: preserve-3d;
+  perspective: 1000px;
   overflow: hidden;
 }
 
@@ -412,16 +413,20 @@
 .project-card-inner {
   height: 100%;
   padding: 2rem;
-  background-color: #112240;
+  background-color: rgba(17, 34, 64, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(100, 255, 218, 0.1);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
 }
 
 .project-card:hover .project-card-inner {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px -20px rgba(2, 12, 27, 0.7);
+  transform: translateY(-10px) rotateX(5deg) rotateY(-5deg);
+  box-shadow: 20px 20px 40px -20px rgba(2, 12, 27, 0.7);
 }
 
 .project-card::before {

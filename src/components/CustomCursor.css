@@ -1,0 +1,78 @@
+.cursor-dot,
+.cursor-ring {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  z-index: 9999;
+  transition: opacity 0.15s ease-in-out;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent, #64ffda);
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, opacity 0.2s;
+}
+
+.cursor-ring {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--accent, #64ffda);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, border-color 0.3s, opacity 0.3s;
+}
+
+.cursor-dot.hidden,
+.cursor-ring.hidden {
+  opacity: 0;
+}
+
+.cursor-dot.clicked {
+  width: 12px;
+  height: 12px;
+  background-color: var(--accent, #64ffda);
+}
+
+.cursor-ring.clicked {
+  width: 30px;
+  height: 30px;
+  border-width: 3px;
+}
+
+.cursor-dot.link-hovered {
+  width: 12px;
+  height: 12px;
+  background-color: var(--accent, #64ffda);
+}
+
+.cursor-ring.link-hovered {
+  width: 60px;
+  height: 60px;
+  border-width: 1px;
+  border-color: rgba(100, 255, 218, 0.5);
+}
+
+/* Hide default cursor when custom cursor is active */
+html {
+  cursor: none;
+}
+
+/* But show default cursor on interactive elements for accessibility */
+a, button, input, textarea, select, .project-card, .social-link, .icon-link, .logo-link {
+  cursor: pointer;
+}
+
+/* Disable custom cursor on mobile */
+@media (max-width: 768px) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+  
+  html {
+    cursor: auto;
+  }
+}

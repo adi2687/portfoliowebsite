@@ -7,6 +7,8 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [formStatus, setFormStatus] = useState({
     submitted: false,
     submitting: false,
@@ -49,15 +51,22 @@ const Contact = () => {
     e.preventDefault();
     setFormStatus({ submitted: false, submitting: true, error: null });
     
+    // Store the current form data for download option
+    const submittedData = { ...formData };
+    
     // Simulate form submission
     setTimeout(() => {
       setFormStatus({ submitted: true, submitting: false, error: null });
-      setFormData({ name: '', email: '', message: '' });
       
-      // Reset form status after 5 seconds
+      // Keep the submitted data available for download
+      // but clear the form fields
+      setFormData(submittedData);
+      
+      // Reset form status after 10 seconds
       setTimeout(() => {
         setFormStatus({ submitted: false, submitting: false, error: null });
-      }, 5000);
+        setFormData({ name: '', email: '', message: '' });
+      }, 10000);
     }, 1500);
   };
 
@@ -80,17 +89,17 @@ const Contact = () => {
             </p>
             
             <div className="contact-info">
-              <div className="contact-info-item">
+              <div className="contact-item">
                 <i className="fas fa-envelope"></i>
-                <a href="mailto:your.email@example.com">your.email@example.com</a>
+                <a href="mailto:adityakurani26@gmail.com">adityakurani26@gmail.com</a>
               </div>
-              <div className="contact-info-item">
+              <div className="contact-item">
                 <i className="fas fa-phone"></i>
-                <a href="tel:+1234567890">+1 (234) 567-890</a>
+                <a href="tel:+919413230180">+91 9413230180</a>
               </div>
-              <div className="contact-info-item">
+              <div className="contact-item">
                 <i className="fas fa-map-marker-alt"></i>
-                <span>Mumbai, India</span>
+                <span>IIIT Nagpur, Maharashtra, India</span>
               </div>
             </div>
           </div>
@@ -101,6 +110,28 @@ const Contact = () => {
                 <i className="fas fa-check-circle"></i>
                 <h3>Thank you!</h3>
                 <p>Your message has been sent successfully.</p>
+                <button 
+                  className="download-message-btn"
+                  onClick={() => {
+                    const messageText = `Name: ${formData.name}
+Email: ${formData.email}
+Message: ${formData.message}
+
+Sent on: ${new Date().toLocaleString()}`;
+                    const blob = new Blob([messageText], { type: 'text/plain' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'message_to_aditya.txt';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                  }}
+                >
+                  <i className="fas fa-download"></i>
+                  Download a copy of your message
+                </button>
               </div>
             ) : (
               <form className="contact-form" onSubmit={handleSubmit}>
@@ -165,17 +196,17 @@ const Contact = () => {
         </div>
         
         <div className="social-links">
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-link">
+          <a href="https://github.com/AdityaKurani" className="social-link" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-github"></i>
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">
+          <a href="https://linkedin.com/AdityaKurani" className="social-link" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-linkedin-in"></i>
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-link">
-            <i className="fab fa-twitter"></i>
+          <a href="https://leetcode.com/AdityaKurani" className="social-link" target="_blank" rel="noopener noreferrer">
+            <i className="fas fa-code"></i>
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-link">
-            <i className="fab fa-instagram"></i>
+          <a href="mailto:adityakurani26@gmail.com" className="social-link">
+            <i className="fas fa-envelope"></i>
           </a>
         </div>
       </div>
