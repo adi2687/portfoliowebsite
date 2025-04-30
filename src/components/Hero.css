@@ -74,19 +74,33 @@
 }
 
 .name {
-  font-size: 5rem;
-  font-weight: 700;
+  font-size: 5.5rem;
+  font-weight: 800;
   color: #ccd6f6;
   margin: 0 0 10px 0;
   line-height: 1.1;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
-  background: linear-gradient(to right, #ccd6f6, #64ffda);
+  background: linear-gradient(120deg, #ccd6f6, #64ffda, #8a84e2);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 5px 15px rgba(100, 255, 218, 0.2);
+  text-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
+  animation: gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .name.animate {
@@ -132,10 +146,12 @@
 
 .cta-buttons {
   display: flex;
-  gap: 25px;
+  gap: 20px;
+  margin-top: 30px;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease 0.4s, transform 0.5s ease 0.4s;
+  transition: opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s;
+  flex-wrap: wrap;
 }
 
 .cta-buttons.animate {
@@ -198,6 +214,42 @@
   background-color: rgba(100, 255, 218, 0.1);
   transform: translateY(-3px);
   box-shadow: 0 7px 20px rgba(100, 255, 218, 0.15);
+}
+
+.cta-button.tertiary {
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background-color: transparent;
+  color: #ccd6f6;
+  border: 2px solid #ccd6f6;
+}
+
+.cta-button.tertiary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(204, 214, 246, 0.2), transparent);
+  transition: left 0.7s ease;
+  z-index: -1;
+}
+
+.cta-button.tertiary:hover {
+  background-color: rgba(204, 214, 246, 0.1);
+  transform: translateY(-3px);
 }
 
 .primary-btn i {
@@ -285,7 +337,7 @@
     align-items: flex-start;
   }
   
-  .primary-btn, .secondary-btn {
+  .primary-btn, .secondary-btn, .cta-button.tertiary {
     width: 100%;
     justify-content: center;
   }

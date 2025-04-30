@@ -11,7 +11,7 @@ const Projects = () => {
       description: 'A MERN stack web app that recommends outfits based on uploaded clothes, weather, location, age, gender, and user preferences with AI-generated images, sharing and selling features.',
       tech: ['React JS', 'Node.js', 'MongoDB', 'BeautifulSoup', 'Selenium'],
       links: {
-        github: 'https://github.com/OutFit-AI',
+        github: 'https://github.com/adi2687/OutFit-AI',
         live: 'https://outfit-ai.com'
       },
       featured: true,
@@ -22,8 +22,8 @@ const Projects = () => {
       description: 'A web application that allows users to book doctor appointments and find the nearest clinic using geolocation, rate doctors, get prescriptions via email and chat with doctors.',
       tech: ['PHP/Hack', 'SQL', 'WebSocket', 'JavaScript'],
       links: {
-        github: 'https://github.com/OnlineAppointment',
-        live: '#'
+        github: 'https://github.com/adi2687/OnlineAppointment',
+        live: 'https://appointment-interface.netlify.app'
       },
       featured: true,
       category: 'web'
@@ -33,8 +33,8 @@ const Projects = () => {
       description: 'A full-stack social media application where users can sign up, post updates, add friends, share posts within their network, real-time messaging, story sharing, and media sharing.',
       tech: ['PHP/Hack', 'SQL', 'JavaScript', 'WebSocket'],
       links: {
-        github: 'https://github.com/SocialMedia',
-        live: '#'
+        github: 'https://github.com/adi2687/SocialMedia',
+        live: 'https://social-platform-connect.netlify.app'
       },
       featured: true,
       category: 'web'
@@ -44,8 +44,8 @@ const Projects = () => {
       description: 'A scalable web application aimed at improving farmer productivity by enabling real-time communication, providing access to essential tools and updates on schemes.',
       tech: ['Hack', 'SQL', 'OAuth 2.0', 'REST APIs'],
       links: {
-        github: 'https://github.com/Dhsango',
-        live: '#'
+        github: 'https://github.com/adi2687/Dhsango',
+        live: 'https://digital-farming-assist.netlify.app'
       },
       featured: false,
       category: 'web'
@@ -55,8 +55,8 @@ const Projects = () => {
       description: 'An AI assistant with voice and text commands for system control, scheduling, and automation. Integrated with Google Calendar for reminders, task management, and media control.',
       tech: ['Python', 'Google API', 'AI/ML'],
       links: {
-        github: 'https://github.com/VoiceAssistant',
-        live: '#'
+        github: 'https://github.com/adi2687/VoiceAssistant',
+        live: 'https://virtual-voice-assist.netlify.app'
       },
       featured: false,
       category: 'ai'

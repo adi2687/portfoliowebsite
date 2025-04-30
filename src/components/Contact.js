@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import emailjs from 'emailjs-com';
 import './Contact.css';
 
 const Contact = () => {
@@ -54,20 +55,42 @@ const Contact = () => {
     // Store the current form data for download option
     const submittedData = { ...formData };
     
-    // Simulate form submission
-    setTimeout(() => {
-      setFormStatus({ submitted: true, submitting: false, error: null });
-      
-      // Keep the submitted data available for download
-      // but clear the form fields
-      setFormData(submittedData);
-      
-      // Reset form status after 10 seconds
-      setTimeout(() => {
-        setFormStatus({ submitted: false, submitting: false, error: null });
-        setFormData({ name: '', email: '', message: '' });
-      }, 10000);
-    }, 1500);
+    // Email.js configuration
+    // You'll need to sign up at emailjs.com and replace these with your actual service ID, template ID, and user ID
+    const serviceId = 'service_uet0wns'; // Your Email.js service ID
+    const templateId = 'template_xyz123'; // Your Email.js template ID
+    const userId = 'user_AbCdEfGhIjKlMnOpQrSt'; // Your Email.js user ID (Public Key)
+    
+    // Prepare template parameters
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      to_name: 'Aditya Kurani',  // Your name
+      reply_to: formData.email,
+      message: formData.message,
+      subject: `Portfolio Contact: ${formData.name}`
+    };
+    
+    // Send email using Email.js
+    emailjs.send(serviceId, templateId, templateParams, userId)
+      .then((response) => {
+        console.log('Email sent successfully!', response);
+        setFormStatus({ submitted: true, submitting: false, error: null });
+        
+        // Keep the submitted data available for download
+        // but clear the form fields
+        setFormData(submittedData);
+        
+        // Reset form status after 10 seconds
+        setTimeout(() => {
+          setFormStatus({ submitted: false, submitting: false, error: null });
+          setFormData({ name: '', email: '', message: '' });
+        }, 10000);
+      })
+      .catch((error) => {
+        console.error('Failed to send email:', error);
+        setFormStatus({ submitted: false, submitting: false, error: 'Failed to send email. Please try again later.' });
+      });
   };
 
   return (
@@ -135,6 +158,12 @@ Sent on: ${new Date().toLocaleString()}`;
               </div>
             ) : (
               <form className="contact-form" onSubmit={handleSubmit}>
+                {formStatus.error && (
+                  <div className="form-error">
+                    <i className="fas fa-exclamation-circle"></i>
+                    <p>{formStatus.error}</p>
+                  </div>
+                )}
                 <div className="form-group">
                   <label htmlFor="name">Name</label>
                   <input
@@ -196,16 +225,16 @@ Sent on: ${new Date().toLocaleString()}`;
         </div>
         
         <div className="social-links">
-          <a href="https://github.com/AdityaKurani" className="social-link" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/adi2687" className="social-link" target="_blank" rel="noopener noreferrer" title="GitHub">
             <i className="fab fa-github"></i>
           </a>
-          <a href="https://linkedin.com/AdityaKurani" className="social-link" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/aditya-kurani-818668176/" className="social-link" target="_blank" rel="noopener noreferrer" title="LinkedIn">
             <i className="fab fa-linkedin-in"></i>
           </a>
-          <a href="https://leetcode.com/AdityaKurani" className="social-link" target="_blank" rel="noopener noreferrer">
+          <a href="https://leetcode.com/u/aditya8798/" className="social-link" target="_blank" rel="noopener noreferrer" title="LeetCode">
             <i className="fas fa-code"></i>
           </a>
-          <a href="mailto:adityakurani26@gmail.com" className="social-link">
+          <a href="mailto:adityakurani26@gmail.com" className="social-link" title="Email">
             <i className="fas fa-envelope"></i>
           </a>
         </div>

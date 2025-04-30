@@ -9,9 +9,15 @@ import Footer from './components/Footer';
 import ThemeToggle from './components/ThemeToggle';
 import CustomCursor from './components/CustomCursor';
 import AnimatedBackground from './components/AnimatedBackground';
+import emailjs from 'emailjs-com';
 
 function App() {
   useEffect(() => {
+    // Initialize Email.js with your user ID (public key)
+    // Email.js configuration
+    // User ID has been updated to match the one in Contact.js
+    emailjs.init('user_AbCdEfGhIjKlMnOpQrSt');
+    
     // Add scroll reveal animation
     const handleScroll = () => {
       const elements = document.querySelectorAll('.animate-on-scroll');

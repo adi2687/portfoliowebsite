@@ -51,12 +51,17 @@ const Hero = () => {
           </p>
         </div>
         <div className="cta-buttons" ref={ctaRef}>
-          <a href="#projects" className="primary-btn">
-            <span>View My Work</span>
-            <i className="fas fa-arrow-right"></i>
+          <a href="#projects" className="cta-button primary">
+            View My Projects
+            <i className="fas fa-code"></i>
           </a>
-          <a href="#contact" className="secondary-btn">
-            <span>Contact Me</span>
+          <a href="https://github.com/adi2687" target="_blank" rel="noopener noreferrer" className="cta-button secondary">
+            GitHub Profile
+            <i className="fab fa-github"></i>
+          </a>
+          <a href="#contact" className="cta-button tertiary">
+            Contact Me
+            <i className="fas fa-envelope"></i>
           </a>
         </div>
         <div className="scroll-indicator">
