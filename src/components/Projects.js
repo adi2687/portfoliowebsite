@@ -18,7 +18,8 @@ const Projects = () => {
       },
       featured: true,
       category: 'mobile',
-      icon: 'fas fa-shopping-bag'
+      icon: 'fas fa-shopping-bag',
+      image: '/nova.png'
     },
     {
       title: 'Outfit-AI Mobile',
@@ -31,7 +32,8 @@ const Projects = () => {
       },
       featured: false,
       category: 'mobile',
-      icon: 'fas fa-mobile-alt'
+      icon: 'fas fa-mobile-alt',
+      image: '/outfitapp.jpg'
     },
     {
       title: 'Outfit-AI',
@@ -54,7 +56,7 @@ const Projects = () => {
       featured: true,
       category: 'ai',
       icon: 'fas fa-tshirt',
-      image: '/outfit-ai-preview.png'
+      image: '/outfitaiweb.png'
     },
     {
       title: 'Medpulse',
@@ -67,7 +69,8 @@ const Projects = () => {
       },
       featured: true,
       category: 'web',
-      icon: 'fas fa-calendar-check'
+      icon: 'fas fa-calendar-check',
+      image: '/medpulse.jpg'
     },
     {
       title: 'Friendify',
@@ -80,7 +83,8 @@ const Projects = () => {
       },
       featured: true,
       category: 'web',
-      icon: 'fas fa-users'
+      icon: 'fas fa-users',
+      image: '/friendify.png'
     },
     {
       title: 'Digital Farming Assistance',
@@ -93,7 +97,8 @@ const Projects = () => {
       },
       featured: false,
       category: 'web',
-      icon: 'fas fa-seedling'
+      icon: 'fas fa-seedling',
+      image: '/dhaango.png'
     },
     {
       title: 'Virtual Voice Assistant',
@@ -106,7 +111,8 @@ const Projects = () => {
       },
       featured: false,
       category: 'ai',
-      icon: 'fas fa-robot'
+      icon: 'fas fa-robot',
+      image: '/nova.png'
     }
   ];
 
@@ -154,6 +160,9 @@ const Projects = () => {
               onMouseEnter={() => setHoveredProject(index)}
               onMouseLeave={() => setHoveredProject(null)}
             >
+              <div className="project-image">
+                <img src={project.image} alt={`${project.title} preview`} />
+              </div>
               <div className="project-content">
                 <div className="project-header">
                   <div className="project-icon">
@@ -212,6 +221,7 @@ const Projects = () => {
           </h3>
           
           <div className="project-filter">
+          
             <button 
               className={`filter-btn ${activeTab === 'all' ? 'active' : ''}`}
               onClick={() => setActiveTab('all')}
@@ -237,8 +247,8 @@ const Projects = () => {
               className={`filter-btn ${activeTab === 'ai' ? 'active' : ''}`}
               onClick={() => setActiveTab('ai')}
             >
-              <span>AI/ML</span>
-              <span className="filter-count">{projects.filter(p => !p.featured && p.category === 'ai').length}</span>
+              {/* <span>AI/ML</span>
+              <span className="filter-count">{projects.filter(p => !p.featured && p.category === 'ai').length}</span> */}
             </button>
           </div>
           
@@ -251,6 +261,12 @@ const Projects = () => {
                 onMouseLeave={() => setHoveredProject(null)}
               >
                 <div className="project-card-inner">
+                  {project.image && (
+                    <div className="project-card-image">
+                      <img src={project.image} alt={`${project.title} preview`} />
+                    </div>
+                  )}
+                  <br/>
                   <div className="project-card-header">
                     <div className="folder-icon">
                       <i className={project.icon}></i>
@@ -284,6 +300,7 @@ const Projects = () => {
                         <i className="fab fa-linkedin"></i>
                       </a>
                     </div>
+                    <br />
                   </div>
                   <h3 className="project-card-title">{project.title}</h3>
                   <p className="project-card-description">{project.description}</p>
