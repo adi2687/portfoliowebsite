@@ -10,14 +10,28 @@ const Projects = () => {
     {
       title: 'Nova',
       description: 'A comprehensive e-commerce platform built with React Native, featuring real-time product tracking, secure payment integration, and personalized shopping experiences with AI-powered recommendations.',
-      tech: ['React Native', 'Node.js', 'MongoDB', 'Express', 'Redux'],
+      tech: ['Python','Google API','Google calendar','Google maps'],
       links: {
         github: 'https://github.com/adi2687/Nova',
-        live: 'https://nova-shop.netlify.app'
+        live: 'https://nova-shop.netlify.app',
+        linkedin: 'https://www.linkedin.com/in/aditya-kurani-818668176/'
       },
       featured: true,
       category: 'mobile',
       icon: 'fas fa-shopping-bag'
+    },
+    {
+      title: 'Outfit-AI Mobile',
+      description: 'A React Native mobile app version of Outfit-AI, featuring weather-based outfit recommendations, AI-powered fashion advice, digital wardrobe management, and shopping integration. The app provides a seamless mobile experience with offline capabilities and push notifications.',
+      tech: ['React Native', 'Node.js', 'MongoDB', 'Express', 'Gemini AI', 'Socket.io', 'Expo'],
+      links: {
+        github: 'https://github.com/adi2687/OutFit-AI',
+        live: 'https://outfit-ai.com',
+        linkedin: 'https://www.linkedin.com/in/aditya-kurani-818668176/'
+      },
+      featured: false,
+      category: 'mobile',
+      icon: 'fas fa-mobile-alt'
     },
     {
       title: 'Outfit-AI',
@@ -34,7 +48,8 @@ const Projects = () => {
       ],
       links: {
         github: 'https://github.com/adi2687/OutFit-AI',
-        live: 'https://outfit-ai.com'
+        live: 'https://outfit-ai.com',
+        linkedin: 'https://www.linkedin.com/in/aditya-kurani-818668176/'
       },
       featured: true,
       category: 'ai',
@@ -42,24 +57,26 @@ const Projects = () => {
       image: '/outfit-ai-preview.png'
     },
     {
-      title: 'Online Appointment Interface',
+      title: 'Medpulse',
       description: 'A web application that allows users to book doctor appointments and find the nearest clinic using geolocation, rate doctors, get prescriptions via email and chat with doctors.',
       tech: ['PHP/Hack', 'SQL', 'WebSocket', 'JavaScript'],
       links: {
         github: 'https://github.com/adi2687/OnlineAppointment',
-        live: 'https://appointment-interface.netlify.app'
+        live: 'https://appointment-interface.netlify.app',
+        linkedin: 'https://www.linkedin.com/in/aditya-kurani-818668176/'
       },
       featured: true,
       category: 'web',
       icon: 'fas fa-calendar-check'
     },
     {
-      title: 'Social Media Platform',
+      title: 'Friendify',
       description: 'A full-stack social media application where users can sign up, post updates, add friends, share posts within their network, real-time messaging, story sharing, and media sharing.',
       tech: ['PHP/Hack', 'SQL', 'JavaScript', 'WebSocket'],
       links: {
         github: 'https://github.com/adi2687/SocialMedia',
-        live: 'https://social-platform-connect.netlify.app'
+        live: 'https://social-platform-connect.netlify.app',
+        linkedin: 'https://www.linkedin.com/in/aditya-kurani-818668176/'
       },
       featured: true,
       category: 'web',
@@ -71,7 +88,8 @@ const Projects = () => {
       tech: ['Hack', 'SQL', 'OAuth 2.0', 'REST APIs'],
       links: {
         github: 'https://github.com/adi2687/Dhsango',
-        live: 'https://digital-farming-assist.netlify.app'
+        live: 'https://digital-farming-assist.netlify.app',
+        linkedin: 'https://www.linkedin.com/in/aditya-kurani-818668176/'
       },
       featured: false,
       category: 'web',
@@ -83,7 +101,8 @@ const Projects = () => {
       tech: ['Python', 'Google API', 'AI/ML'],
       links: {
         github: 'https://github.com/adi2687/VoiceAssistant',
-        live: 'https://virtual-voice-assist.netlify.app'
+        live: 'https://virtual-voice-assist.netlify.app',
+        linkedin: 'https://www.linkedin.com/in/aditya-kurani-818668176/'
       },
       featured: false,
       category: 'ai',
@@ -159,6 +178,15 @@ const Projects = () => {
                     >
                       <i className="fas fa-external-link-alt"></i>
                     </a>
+                    <a 
+                      href={project.links.linkedin} 
+                      aria-label="LinkedIn Profile" 
+                      className="icon-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i className="fab fa-linkedin"></i>
+                    </a>
                   </div>
                 </div>
                 <h3 className="project-title">
@@ -173,15 +201,7 @@ const Projects = () => {
                   ))}
                 </ul>
               </div>
-              <div className="project-image">
-                <div className="project-image-placeholder">
-                  <div className="image-content">
-                    <span>{project.title.substring(0, 2)}</span>
-                  </div>
-                  <div className="image-overlay"></div>
-                  <div className="image-frame"></div>
-                </div>
-              </div>
+              
             </div>
           ))}
         </div>
@@ -253,6 +273,15 @@ const Projects = () => {
                         rel="noopener noreferrer"
                       >
                         <i className="fas fa-external-link-alt"></i>
+                      </a>
+                      <a 
+                        href={project.links.linkedin} 
+                        aria-label="LinkedIn Profile" 
+                        className="icon-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i className="fab fa-linkedin"></i>
                       </a>
                     </div>
                   </div>
