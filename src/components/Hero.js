@@ -42,6 +42,16 @@ const Hero = () => {
         <FloatingShapes />
       </div>
       <div className="hero-content">
+        <div className="hero-image-container">
+          <div className="hero-image-wrapper">
+            <img 
+              src="/mypic.jpeg" 
+              alt="Aditya Kurani" 
+              className="hero-image"
+            />
+            <div className="image-frame"></div>
+          </div>
+        </div>
         <div className="hero-text">
           <p className="intro animate-on-scroll">Hi, I'm</p>
           <h1 className="name animate-on-scroll" ref={nameRef}>

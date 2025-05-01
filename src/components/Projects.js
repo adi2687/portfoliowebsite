@@ -23,13 +23,23 @@ const Projects = () => {
       title: 'Outfit-AI',
       description: 'A comprehensive fashion AI platform featuring weather-based outfit recommendations, AI-powered chatbot for fashion advice, digital wardrobe management, shopping integration with Amazon and Myntra, and image classification using Gemini AI. The platform includes features like outfit planning, social sharing, and a mobile-responsive design.',
       tech: ['React.js', 'Node.js', 'MongoDB', 'Express', 'Gemini AI', 'Socket.io', 'Selenium', 'BeautifulSoup', 'Three.js'],
+      features: [
+        'Weather-based outfit recommendations using real-time data',
+        'AI-powered fashion advice chatbot',
+        'Digital wardrobe management with image classification',
+        'Shopping integration with Amazon and Myntra',
+        'Social sharing and outfit planning',
+        'Mobile-responsive design with React Native',
+        'Real-time updates and notifications'
+      ],
       links: {
         github: 'https://github.com/adi2687/OutFit-AI',
         live: 'https://outfit-ai.com'
       },
       featured: true,
       category: 'ai',
-      icon: 'fas fa-tshirt'
+      icon: 'fas fa-tshirt',
+      image: '/outfit-ai-preview.png'
     },
     {
       title: 'Online Appointment Interface',

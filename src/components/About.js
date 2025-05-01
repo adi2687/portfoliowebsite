@@ -148,13 +148,7 @@ const About = () => {
               </div>
             </div>
             
-            <div className="experience-box">
-              <div className="experience-content">
-                
-                <span className="experience-number">3+</span>
-                <span className="experience-text">Months of Experience</span>
-              </div>
-            </div>
+            
           </div>
         </div>
         
