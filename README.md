@@ -1,70 +1,133 @@
-# Getting Started with Create React App
+# Aditya Kurani - Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive portfolio website built with React, showcasing my projects and skills in software development.
 
-## Available Scripts
+## 🚀 Featured Projects
 
-In the project directory, you can run:
+### 1. Nova - E-commerce Platform
+- **Tech Stack**: React Native, Node.js, MongoDB, Express, Redux
+- **Description**: A comprehensive e-commerce platform featuring:
+  - Real-time product tracking
+  - Secure payment integration
+  - AI-powered personalized shopping recommendations
+  - Mobile-first design with React Native
 
-### `npm start`
+### 2. Outfit-AI
+- **Tech Stack**: React JS, Node.js, MongoDB, BeautifulSoup, Selenium
+- **Description**: An AI-powered fashion recommendation system that:
+  - Suggests outfits based on user-uploaded clothes
+  - Considers weather, location, age, and gender
+  - Features AI-generated outfit images
+  - Includes social sharing and marketplace functionality
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 3. Online Appointment Interface
+- **Tech Stack**: PHP/Hack, SQL, WebSocket, JavaScript
+- **Description**: A healthcare appointment management system offering:
+  - Geolocation-based clinic finding
+  - Real-time doctor-patient chat
+  - Online prescription delivery
+  - Doctor rating and review system
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 4. Social Media Platform
+- **Tech Stack**: PHP/Hack, SQL, JavaScript, WebSocket
+- **Features**:
+  - User authentication and profiles
+  - Real-time messaging and notifications
+  - Story sharing functionality
+  - Media sharing capabilities
+  - Friend network management
 
-### `npm test`
+## 💻 Other Notable Projects
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Digital Farming Assistance
+- **Tech Stack**: Hack, SQL, OAuth 2.0, REST APIs
+- A web platform helping farmers with:
+  - Real-time communication tools
+  - Access to essential farming resources
+  - Updates on agricultural schemes
+  - Productivity tracking
 
-### `npm run build`
+### Virtual Voice Assistant
+- **Tech Stack**: Python, Google API, AI/ML
+- An AI-powered assistant featuring:
+  - Voice and text command processing
+  - System control capabilities
+  - Google Calendar integration
+  - Smart search and media control
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠 Technical Skills
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Languages & Frameworks
+- C/C++
+- JavaScript (90%)
+- Python
+- PHP/Hack
+- React JS
+- React Native
+- Node.js
+- Express JS
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Web & App Development
+- HTML/CSS
+- REST APIs
+- WebSocket
+- OAuth 2.0
 
-### `npm run eject`
+### Database & Tools
+- SQL/MongoDB
+- Version Control (Git)
+- API Integration
+- MVC Architecture
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🏆 Achievements
+- Ranked 5th at national level hackathon by IITM Gwalior
+- Finalist in Medecro.ai Hackathon
+- Qualified IYMC (International Youth Math Competition) 2023
+- Solved 120+ questions on Leetcode
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🎓 Education
+- IIIT Nagpur
+- B.Tech in Computer Science and Engineering
+- Current CGPA: 8.32
+- Expected Graduation: June 2027
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📫 Contact
+- Email: adityakurani26@gmail.com
+- GitHub: [github.com/AdityaKurani](https://github.com/AdityaKurani)
+- LinkedIn: [linkedin.com/AdityaKurani](https://linkedin.com/AdityaKurani)
+- LeetCode: [leetcode.com/AdityaKurani](https://leetcode.com/AdityaKurani)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🚀 Quick Start
 
-## Learn More
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/portfolio-react.git
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Navigate to project directory
+cd portfolio-react
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Install dependencies
+npm install
 
-### Code Splitting
+# Start development server
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🛠 Built With
+- React.js
+- CSS3 with custom animations
+- EmailJS for contact form
+- Font Awesome icons
+- Intersection Observer API for scroll animations
 
-### Analyzing the Bundle Size
+## 📱 Features
+- Responsive design for all devices
+- Dark theme with modern UI
+- Smooth scroll animations
+- Interactive project cards
+- Real-time contact form
+- Dynamic skill progress bars
+- Animated section transitions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📄 License
+This project is open source and available under the MIT License.

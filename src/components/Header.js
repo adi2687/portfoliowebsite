@@ -46,6 +46,7 @@ const Header = () => {
         <div className="logo">
           <a href="#home" className="logo-link">
             <span className="logo-text">AK</span>
+            <span className="logo-dot"></span>
           </a>
         </div>
         
@@ -55,18 +56,20 @@ const Header = () => {
               <li key={section} style={{animationDelay: `${index * 0.1}s`}}>
                 <a 
                   href={`#${section}`} 
-                  className={activeSection === section ? 'active' : ''}
+                  className={`nav-link ${activeSection === section ? 'active' : ''}`}
                   onClick={closeMenu}
                 >
-                  <span className="nav-number">0{index + 1}.</span>
+                  {/* <span className="nav-number">0{index + 1}.</span> */}
                   <span className="nav-text">{section.charAt(0).toUpperCase() + section.slice(1)}</span>
+                  <span className="nav-line"></span>
                 </a>
               </li>
             ))}
           </ul>
           
           <a href="#contact" className="resume-button" onClick={closeMenu}>
-            Get In Touch
+            <span>Get In Touch</span>
+            <i className="fas fa-paper-plane"></i>
           </a>
         </nav>
         

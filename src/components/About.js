@@ -9,12 +9,18 @@ const About = () => {
   const skillsRef = useRef(null);
   
   const skills = [
-    { name: 'JavaScript', level: 90 },
-    { name: 'React JS', level: 88 },
-    { name: 'PHP/Hack', level: 85 },
-    { name: 'Python', level: 80 },
-    { name: 'C/C++', level: 75 },
-    { name: 'SQL/MongoDB', level: 85 }
+    { name: 'C/C++', level: 80, icon: 'fas fa-code' },
+    { name: 'JavaScript', level: 92, icon: 'fab fa-js' },
+    { name: 'Python', level: 85, icon: 'fab fa-python' },
+    { name: 'PHP/Hack', level: 88, icon: 'fab fa-php' },
+    { name: 'React JS', level: 90, icon: 'fab fa-react' },
+    { name: 'React Native', level: 82, icon: 'fab fa-react' },
+    { name: 'Node.js', level: 88, icon: 'fab fa-node-js' },
+    { name: 'Express JS', level: 86, icon: 'fab fa-node' },
+    { name: 'HTML/CSS', level: 90, icon: 'fab fa-html5' },
+    { name: 'SQL/MongoDB', level: 85, icon: 'fas fa-database' },
+    { name: 'REST APIs', level: 88, icon: 'fas fa-network-wired' },
+    { name: 'WebSocket', level: 80, icon: 'fas fa-plug' }
   ];
   
   useEffect(() => {
@@ -70,45 +76,56 @@ const About = () => {
               <div className="skills-container">
                 {skills.map((skill, index) => (
                   <div className="skill-item" key={index}>
+                    <div className="skill-icon">
+                      <i className={skill.icon}></i>
+                    </div>
                     <div className="skill-info">
                       <span className="skill-name">{skill.name}</span>
+                      <div className="skill-bar">
+                        <div 
+                          className="skill-progress" 
+                          style={{ width: `${skill.level}%` }}
+                        ></div>
+                      </div>
                       <span className="skill-percentage">{skill.level}%</span>
-                    </div>
-                    <div className="skill-bar">
-                      <div 
-                        className="skill-progress" 
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
                     </div>
                   </div>
                 ))}
               </div>
               
-              <h3 className="sub-title animate-on-scroll">Awards & Achievements</h3>
-              <div className="awards-container animate-on-scroll">
+              <h3 className="sub-title">Awards & Achievements</h3>
+              <div className="awards-container">
                 <div className="award-item">
-                  <i className="fas fa-trophy"></i>
+                  <div className="award-icon">
+                    <i className="fas fa-trophy"></i>
+                  </div>
                   <div className="award-content">
                     <h4>National Level Hackathon</h4>
                     <p>Ranked 5th at the national level hackathon organised by IITM Gwalior</p>
                   </div>
                 </div>
                 <div className="award-item">
-                  <i className="fas fa-medal"></i>
+                  <div className="award-icon">
+                    <i className="fas fa-medal"></i>
+                  </div>
                   <div className="award-content">
                     <h4>Medecro.ai Hackathon</h4>
                     <p>Reached the final round of a national hackathon hosted by Medecro.ai</p>
                   </div>
                 </div>
                 <div className="award-item">
-                  <i className="fas fa-award"></i>
+                  <div className="award-icon">
+                    <i className="fas fa-award"></i>
+                  </div>
                   <div className="award-content">
                     <h4>International Youth Math Competition</h4>
                     <p>Qualified IYMC (International Youth Math Competition) 2023</p>
                   </div>
                 </div>
                 <div className="award-item">
-                  <i className="fas fa-code"></i>
+                  <div className="award-icon">
+                    <i className="fas fa-code"></i>
+                  </div>
                   <div className="award-content">
                     <h4>Leetcode</h4>
                     <p>Solved 120+ questions on Leetcode</p>
@@ -121,19 +138,21 @@ const About = () => {
           <div className="about-image" ref={imageRef}>
             <div className="image-card">
               <div className="image-wrapper">
-                {/* Replace with your actual image */}
-                <div className="placeholder-image">
-                  <span>AK</span>
-                </div>
+                <img 
+                  src={require('../images/mypic.jpeg')} 
+                  alt="Profile"
+                  className="profile-image"
+                />
                 <div className="image-overlay"></div>
+                <div className="image-frame"></div>
               </div>
-              <div className="image-frame"></div>
             </div>
             
             <div className="experience-box">
               <div className="experience-content">
+                
                 <span className="experience-number">2+</span>
-                <span className="experience-text">Years Coding</span>
+                <span className="experience-text">Years of Experience</span>
               </div>
             </div>
           </div>

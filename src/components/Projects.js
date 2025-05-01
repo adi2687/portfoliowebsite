@@ -3,9 +3,22 @@ import './Projects.css';
 
 const Projects = () => {
   const [activeTab, setActiveTab] = useState('all');
+  const [hoveredProject, setHoveredProject] = useState(null);
   const projectsRef = useRef(null);
   
   const projects = [
+    {
+      title: 'Nova',
+      description: 'A comprehensive e-commerce platform built with React Native, featuring real-time product tracking, secure payment integration, and personalized shopping experiences with AI-powered recommendations.',
+      tech: ['React Native', 'Node.js', 'MongoDB', 'Express', 'Redux'],
+      links: {
+        github: 'https://github.com/adi2687/Nova',
+        live: 'https://nova-shop.netlify.app'
+      },
+      featured: true,
+      category: 'mobile',
+      icon: 'fas fa-shopping-bag'
+    },
     {
       title: 'Outfit-AI',
       description: 'A MERN stack web app that recommends outfits based on uploaded clothes, weather, location, age, gender, and user preferences with AI-generated images, sharing and selling features.',
@@ -15,7 +28,8 @@ const Projects = () => {
         live: 'https://outfit-ai.com'
       },
       featured: true,
-      category: 'ai'
+      category: 'ai',
+      icon: 'fas fa-tshirt'
     },
     {
       title: 'Online Appointment Interface',
@@ -26,7 +40,8 @@ const Projects = () => {
         live: 'https://appointment-interface.netlify.app'
       },
       featured: true,
-      category: 'web'
+      category: 'web',
+      icon: 'fas fa-calendar-check'
     },
     {
       title: 'Social Media Platform',
@@ -37,7 +52,8 @@ const Projects = () => {
         live: 'https://social-platform-connect.netlify.app'
       },
       featured: true,
-      category: 'web'
+      category: 'web',
+      icon: 'fas fa-users'
     },
     {
       title: 'Digital Farming Assistance',
@@ -48,7 +64,8 @@ const Projects = () => {
         live: 'https://digital-farming-assist.netlify.app'
       },
       featured: false,
-      category: 'web'
+      category: 'web',
+      icon: 'fas fa-seedling'
     },
     {
       title: 'Virtual Voice Assistant',
@@ -59,7 +76,8 @@ const Projects = () => {
         live: 'https://virtual-voice-assist.netlify.app'
       },
       featured: false,
-      category: 'ai'
+      category: 'ai',
+      icon: 'fas fa-robot'
     }
   ];
 
@@ -75,7 +93,7 @@ const Projects = () => {
       { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
     );
 
-    const projectElements = document.querySelectorAll('.featured-project, .project-card');
+    const projectElements = document.querySelectorAll('.featured-project, .project-card, .project-filter');
     projectElements.forEach((el) => observer.observe(el));
 
     return () => {
@@ -91,14 +109,48 @@ const Projects = () => {
 
   return (
     <section id="projects" className="projects" ref={projectsRef}>
+      <div className="projects-background">
+        <div className="projects-particles"></div>
+      </div>
       <div className="projects-container">
-        <h2 className="section-title">My Projects</h2>
+        <h2 className="section-title">
+          <span className="highlight">My Projects</span>
+        </h2>
         
         <div className="featured-projects">
           {featuredProjects.map((project, index) => (
-            <div className="featured-project" key={index}>
+            <div 
+              className="featured-project" 
+              key={index}
+              onMouseEnter={() => setHoveredProject(index)}
+              onMouseLeave={() => setHoveredProject(null)}
+            >
               <div className="project-content">
-                <p className="project-overline">Featured Project</p>
+                <div className="project-header">
+                  <div className="project-icon">
+                    <i className={project.icon}></i>
+                  </div>
+                  <div className="project-links">
+                    <a 
+                      href={project.links.github} 
+                      aria-label="GitHub Link" 
+                      className="icon-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i className="fab fa-github"></i>
+                    </a>
+                    <a 
+                      href={project.links.live} 
+                      aria-label="Live Demo" 
+                      className="icon-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i className="fas fa-external-link-alt"></i>
+                    </a>
+                  </div>
+                </div>
                 <h3 className="project-title">
                   <span className="highlight">{project.title}</span>
                 </h3>
@@ -110,14 +162,6 @@ const Projects = () => {
                     <li key={techIndex}>{tech}</li>
                   ))}
                 </ul>
-                <div className="project-links">
-                  <a href={project.links.github} aria-label="GitHub Link" className="icon-link">
-                    <i className="fab fa-github"></i>
-                  </a>
-                  <a href={project.links.live} aria-label="Live Demo" className="icon-link">
-                    <i className="fas fa-external-link-alt"></i>
-                  </a>
-                </div>
               </div>
               <div className="project-image">
                 <div className="project-image-placeholder">
@@ -125,6 +169,7 @@ const Projects = () => {
                     <span>{project.title.substring(0, 2)}</span>
                   </div>
                   <div className="image-overlay"></div>
+                  <div className="image-frame"></div>
                 </div>
               </div>
             </div>
@@ -132,42 +177,71 @@ const Projects = () => {
         </div>
 
         <div className="other-projects-section">
-          <h3 className="other-projects-title">Other Noteworthy Projects</h3>
+          <h3 className="other-projects-title">
+            <span className="highlight">Other Noteworthy Projects</span>
+          </h3>
           
           <div className="project-filter">
             <button 
               className={`filter-btn ${activeTab === 'all' ? 'active' : ''}`}
               onClick={() => setActiveTab('all')}
             >
-              All
+              <span>All</span>
+              <span className="filter-count">{projects.filter(p => !p.featured).length}</span>
             </button>
             <button 
               className={`filter-btn ${activeTab === 'web' ? 'active' : ''}`}
               onClick={() => setActiveTab('web')}
             >
-              Web Apps
+              <span>Web Apps</span>
+              <span className="filter-count">{projects.filter(p => !p.featured && p.category === 'web').length}</span>
+            </button>
+            <button 
+              className={`filter-btn ${activeTab === 'mobile' ? 'active' : ''}`}
+              onClick={() => setActiveTab('mobile')}
+            >
+              <span>Mobile Apps</span>
+              <span className="filter-count">{projects.filter(p => !p.featured && p.category === 'mobile').length}</span>
             </button>
             <button 
               className={`filter-btn ${activeTab === 'ai' ? 'active' : ''}`}
               onClick={() => setActiveTab('ai')}
             >
-              AI/ML
+              <span>AI/ML</span>
+              <span className="filter-count">{projects.filter(p => !p.featured && p.category === 'ai').length}</span>
             </button>
           </div>
           
           <div className="other-projects">
             {filteredProjects.map((project, index) => (
-              <div className="project-card" key={index}>
+              <div 
+                className="project-card" 
+                key={index}
+                onMouseEnter={() => setHoveredProject(index + featuredProjects.length)}
+                onMouseLeave={() => setHoveredProject(null)}
+              >
                 <div className="project-card-inner">
                   <div className="project-card-header">
                     <div className="folder-icon">
-                      <i className="far fa-folder"></i>
+                      <i className={project.icon}></i>
                     </div>
                     <div className="project-links">
-                      <a href={project.links.github} aria-label="GitHub Link" className="icon-link">
+                      <a 
+                        href={project.links.github} 
+                        aria-label="GitHub Link" 
+                        className="icon-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <i className="fab fa-github"></i>
                       </a>
-                      <a href={project.links.live} aria-label="Live Demo" className="icon-link">
+                      <a 
+                        href={project.links.live} 
+                        aria-label="Live Demo" 
+                        className="icon-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <i className="fas fa-external-link-alt"></i>
                       </a>
                     </div>
