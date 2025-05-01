@@ -21,8 +21,8 @@ const Projects = () => {
     },
     {
       title: 'Outfit-AI',
-      description: 'A MERN stack web app that recommends outfits based on uploaded clothes, weather, location, age, gender, and user preferences with AI-generated images, sharing and selling features.',
-      tech: ['React JS', 'Node.js', 'MongoDB', 'BeautifulSoup', 'Selenium'],
+      description: 'A comprehensive fashion AI platform featuring weather-based outfit recommendations, AI-powered chatbot for fashion advice, digital wardrobe management, shopping integration with Amazon and Myntra, and image classification using Gemini AI. The platform includes features like outfit planning, social sharing, and a mobile-responsive design.',
+      tech: ['React.js', 'Node.js', 'MongoDB', 'Express', 'Gemini AI', 'Socket.io', 'Selenium', 'BeautifulSoup', 'Three.js'],
       links: {
         github: 'https://github.com/adi2687/OutFit-AI',
         live: 'https://outfit-ai.com'

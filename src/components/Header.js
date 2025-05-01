@@ -52,7 +52,7 @@ const Header = () => {
         
         <nav className={`nav ${isMenuOpen ? 'active' : ''}`}>
           <ul className="nav-list">
-            {['home', 'about', 'projects', 'contact'].map((section, index) => (
+            {['home', 'about', 'projects'].map((section, index) => (
               <li key={section} style={{animationDelay: `${index * 0.1}s`}}>
                 <a 
                   href={`#${section}`} 

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import './Hero.css';
 import FloatingShapes from './FloatingShapes';
+import { FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const Hero = () => {
   const nameRef = useRef(null);
@@ -71,14 +72,14 @@ const Hero = () => {
           </a>
         </div>
         <div className="social-links animate-on-scroll">
-          <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/aditya-kurani-818668176/" target="_blank" rel="noopener noreferrer" className="social-link">
+            <FaLinkedin className="social-icon" />
           </a>
-          <a href="https://twitter.com/your-profile" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-twitter"></i>
+          <a href="https://x.com/AdityaKurani" target="_blank" rel="noopener noreferrer" className="social-link">
+            <FaTwitter className="social-icon" />
           </a>
-          <a href="https://instagram.com/your-profile" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-instagram"></i>
+          <a href="https://www.instagram.com/aditya_kurani_26/" target="_blank" rel="noopener noreferrer" className="social-link">
+            <FaInstagram className="social-icon" />
           </a>
         </div>
         <div className="scroll-indicator">
