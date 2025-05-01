@@ -1,7 +1,7 @@
 .projects {
   position: relative;
   padding: 120px 0;
-  background: var(--background-color);
+  background: #ffffff;
   overflow: hidden;
 }
 
@@ -12,7 +12,7 @@
   width: 100%;
   height: 100%;
   z-index: 0;
-  background: linear-gradient(135deg, rgba(100, 108, 255, 0.08) 0%, rgba(100, 108, 255, 0.03) 100%);
+  background: linear-gradient(135deg, rgba(72, 219, 251, 0.03) 0%, rgba(72, 219, 251, 0.01) 100%);
 }
 
 .projects-particles {
@@ -21,7 +21,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: radial-gradient(circle at 1px 1px, var(--primary-color) 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, rgba(72, 219, 251, 0.2) 1px, transparent 0);
   background-size: 40px 40px;
   opacity: 0.1;
   animation: particles 20s linear infinite;
@@ -79,15 +79,14 @@
 }
 
 .featured-project {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  /* border: 2px solid red;y/ */
+  background: #ffffff;
+  border: 1px solid rgba(72, 219, 251, 0.1);
   border-radius: 24px;
   padding: 35px;
   display: flex;
   flex-direction: column;
   gap: 25px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
@@ -95,8 +94,8 @@
 
 .featured-project:hover {
   transform: translateY(-12px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  border-color: var(--primary-color);
+  box-shadow: 0 20px 40px rgba(72, 219, 251, 0.08);
+  border-color: rgba(72, 219, 251, 0.3);
 }
 
 .project-image {
@@ -135,14 +134,14 @@
 .project-icon {
   width: 55px;
   height: 55px;
-  background: linear-gradient(135deg, var(--primary-color) 0%, rgba(100, 108, 255, 0.8) 100%);
+  background: linear-gradient(135deg, rgba(72, 219, 251, 0.9) 0%, rgba(72, 219, 251, 0.7) 100%);
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   font-size: 1.6rem;
-  box-shadow: 0 5px 15px rgba(100, 108, 255, 0.3);
+  box-shadow: 0 5px 15px rgba(72, 219, 251, 0.15);
   transition: all 0.3s ease;
 }
 
@@ -156,7 +155,7 @@
 }
 
 .icon-link {
-  color: var(--text-color);
+  color: #666;
   font-size: 1.3rem;
   transition: all 0.3s ease;
   width: 45px;
@@ -165,27 +164,25 @@
   align-items: center;
   justify-content: center;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  border: 1px solid rgba(72, 219, 251, 0.1);
 }
 
 .icon-link:hover {
-  color: var(--primary-color);
+  color: rgba(72, 219, 251, 1);
   transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--primary-color);
+  background: rgba(72, 219, 251, 0.05);
+  border-color: rgba(72, 219, 251, 0.3);
 }
 
 .project-title {
+  color: #333;
   font-size: 2.2rem;
-  font-weight: 700;
-  color: var(--text-color);
-  margin: 0;
-  line-height: 1.3;
+  font-weight: 600;
 }
 
 .project-description {
-  color: var(--text-secondary);
+  color: #666;
   line-height: 1.8;
   font-size: 1.15rem;
 }
@@ -198,19 +195,19 @@
 }
 
 .project-tech-list li {
-  background: rgba(100, 108, 255, 0.1);
-  color: var(--primary-color);
+  background: rgba(72, 219, 251, 0.05);
+  color: rgba(72, 219, 251, 0.9);
   padding: 10px 18px;
   border-radius: 20px;
   font-size: 0.95rem;
   transition: all 0.3s ease;
-  border: 1px solid transparent;
+  border: 1px solid rgba(72, 219, 251, 0.1);
 }
 
 .project-tech-list li:hover {
-  background: rgba(100, 108, 255, 0.2);
+  background: rgba(72, 219, 251, 0.1);
   transform: translateY(-2px);
-  border-color: var(--primary-color);
+  border-color: rgba(72, 219, 251, 0.3);
 }
 
 .project-image-placeholder {
@@ -294,13 +291,13 @@
 }
 
 .filter-btn {
-  background: transparent;
-  border: 2px solid rgba(100, 108, 255, 0.2);
+  background: #ffffff;
+  border: 2px solid rgba(72, 219, 251, 0.1);
   padding: 12px 24px;
   border-radius: 30px;
   cursor: pointer;
   font-size: 1rem;
-  color: var(--text-color);
+  color: #666;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -321,19 +318,20 @@
 
 .filter-btn:hover,
 .filter-btn.active {
-  color: white;
-  border-color: var(--primary-color);
+  color: rgba(72, 219, 251, 1);
+  border-color: rgba(72, 219, 251, 0.3);
+  background: rgba(72, 219, 251, 0.05);
 }
 
 .filter-btn:hover::before,
 .filter-btn.active::before {
-  opacity: 1;
+  opacity: 0.1;
 }
 
 .filter-count {
   margin-left: 8px;
-  background: rgba(100, 108, 255, 0.1);
-  color: var(--primary-color);
+  background: rgba(72, 219, 251, 0.05);
+  color: rgba(72, 219, 251, 0.9);
   padding: 2px 8px;
   border-radius: 10px;
   font-size: 0.8rem;
@@ -347,8 +345,8 @@
 }
 
 .project-card {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(10px);
+  background: #ffffff;
+  border: 1px solid rgba(72, 219, 251, 0.1);
   border-radius: 24px;
   padding: 35px;
   height: 92%;
@@ -359,11 +357,13 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .project-card:hover {
   transform: translateY(-12px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 40px rgba(72, 219, 251, 0.08);
+  border-color: rgba(72, 219, 251, 0.3);
 }
 
 .project-card-header {
@@ -626,4 +626,41 @@
 
 .project-image-preview:hover {
   transform: scale(1.02);
+}
+
+@media (prefers-color-scheme: dark) {
+  .projects {
+    background: var(--background-color);
+  }
+
+  .featured-project,
+  .project-card {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(72, 219, 251, 0.1);
+  }
+
+  .featured-project:hover,
+  .project-card:hover {
+    background: rgba(72, 219, 251, 0.05);
+    border-color: rgba(72, 219, 251, 0.3);
+  }
+
+  .icon-link {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(72, 219, 251, 0.1);
+    color: var(--text-color);
+  }
+
+  .project-title {
+    color: var(--text-color);
+  }
+
+  .project-description {
+    color: var(--text-secondary);
+  }
+
+  .filter-btn {
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--text-color);
+  }
 }

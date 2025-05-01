@@ -70,85 +70,72 @@ const About = () => {
                 I'm committed to continuously expanding my technical knowledge to adapt to evolving industry trends. When I'm not coding, you can find me participating in hackathons (ranked 5th nationally!) or working on new project ideas.
               </p>
             </div>
-            
-            <div className="skills-section" ref={skillsRef}>
-              <h3>Skills & Technologies</h3>
-              <div className="skills-container">
-                {skills.map((skill, index) => (
-                  <div className="skill-item" key={index}>
-                    <div className="skill-icon">
-                      <i className={skill.icon}></i>
-                    </div>
-                    <div className="skill-info">
-                      <span className="skill-name">{skill.name}</span>
-                      <div className="skill-bar">
-                        <div 
-                          className="skill-progress" 
-                          style={{ width: `${skill.level}%` }}
-                        ></div>
-                      </div>
-                      <span className="skill-percentage">{skill.level}%</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              <h3 className="sub-title">Awards & Achievements</h3>
-              <div className="awards-container">
-                <div className="award-item">
-                  <div className="award-icon">
-                    <i className="fas fa-trophy"></i>
-                  </div>
-                  <div className="award-content">
-                    <h4>National Level Hackathon</h4>
-                    <p>Ranked 5th at the national level hackathon organised by IITM Gwalior</p>
-                  </div>
-                </div>
-                <div className="award-item">
-                  <div className="award-icon">
-                    <i className="fas fa-medal"></i>
-                  </div>
-                  <div className="award-content">
-                    <h4>Medecro.ai Hackathon</h4>
-                    <p>Reached the final round of a national hackathon hosted by Medecro.ai</p>
-                  </div>
-                </div>
-                <div className="award-item">
-                  <div className="award-icon">
-                    <i className="fas fa-award"></i>
-                  </div>
-                  <div className="award-content">
-                    <h4>International Youth Math Competition</h4>
-                    <p>Qualified IYMC (International Youth Math Competition) 2023</p>
-                  </div>
-                </div>
-                <div className="award-item">
-                  <div className="award-icon">
-                    <i className="fas fa-code"></i>
-                  </div>
-                  <div className="award-content">
-                    <h4>Leetcode</h4>
-                    <p>Solved 120+ questions on Leetcode</p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           
-          <div className="about-image" ref={imageRef}>
-            <div className="image-card">
-              <div className="image-wrapper">
-                <img 
-                  src={require('../images/mypic.jpeg')} 
-                  alt="Profile"
-                  className="profile-image"
-                />
-                <div className="image-overlay"></div>
-                <div className="image-frame"></div>
-              </div>
+          
+          
+          <div className="skills-section" ref={skillsRef}>
+            <h3>Skills & Technologies</h3>
+            <div className="skills-container">
+              {skills.map((skill, index) => (
+                <div className="skill-item" key={index}>
+                  <div className="skill-icon">
+                    <i className={skill.icon}></i>
+                  </div>
+                  <div className="skill-info">
+                    <span className="skill-name">{skill.name}</span>
+                    <div className="skill-bar">
+                      <div 
+                        className="skill-progress" 
+                        style={{ width: `${skill.level}%` }}
+                      ></div>
+                    </div>
+                    <span className="skill-percentage">{skill.level}%</span>
+                  </div>
+                </div>
+              ))}
             </div>
             
-            
+            <h3 className="sub-title">Awards & Achievements</h3>
+            <div className="awards-container">
+              <div className="award-item">
+                <div className="award-icon">
+                  <i className="fas fa-trophy"></i>
+                </div>
+                <div className="award-content">
+                  <h4>National Level Hackathon</h4>
+                  <p>Ranked 5th at the national level hackathon organised by IITM Gwalior</p>
+                </div>
+              </div>
+              <div className="award-item">
+                <div className="award-icon">
+                  <i className="fas fa-medal"></i>
+                </div>
+                <div className="award-content">
+                  <h4>Medecro.ai Hackathon</h4>
+                  <p>Reached the final round of a national hackathon hosted by Medecro.ai</p>
+                </div>
+              </div>
+              <div className="award-item">
+                <div className="award-icon">
+                  <i className="fas fa-award"></i>
+                </div>
+                <div className="award-content">
+                  <h4>International Youth Math Competition</h4>
+                  <p>Qualified IYMC (International Youth Math Competition) 2023</p>
+                </div>
+              </div>
+              <div className="award-item">
+                <div className="award-icon">
+                  <i className="fas fa-code"></i>
+                </div>
+                <div className="award-content">
+                  <h4>Leetcode</h4>
+                  <p>Solved 120+ questions on Leetcode</p>
+                  <a href="https://leetcode.com/u/aditya8798/" target="_blank" rel="noopener noreferrer">Visit Profile</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         

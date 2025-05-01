@@ -57,6 +57,7 @@
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease;
+  grid-column: 1;
 }
 
 .text-content {
@@ -78,7 +79,8 @@
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease 0.2s;
-  min-width:75vw
+  grid-column: 1 / -1;
+  margin-top: 2rem;
 }
 
 .skills-section h3 {
@@ -210,6 +212,8 @@
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease 0.4s;
+  grid-column: 2;
+  grid-row: 1;
 }
 
 .image-card {
@@ -352,7 +356,21 @@
 @media (max-width: 768px) {
   .about-content {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2rem;
+  }
+  
+  .about-text,
+  .about-image,
+  .skills-section {
+    grid-column: 1;
+  }
+  
+  .about-image {
+    order: 2;
+  }
+  
+  .skills-section {
+    order: 3;
   }
   
   .skills-container,

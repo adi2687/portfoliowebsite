@@ -5,6 +5,16 @@
   box-sizing: border-box;
 }
 
+:root {
+  --background-light: #ffffff;
+  --background-dark: #0a192f;
+  --text-primary-light: #333;
+  --text-secondary-light: #666;
+  --text-primary-dark: #ccd6f6;
+  --text-secondary-dark: #8892b0;
+  --accent-color: rgba(72, 219, 251, 1);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -16,8 +26,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0a192f;
-  color: #8892b0;
+  background-color: var(--background-light);
+  color: var(--text-secondary-light);
   line-height: 1.3;
 }
 
@@ -29,7 +39,7 @@ code {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: 600;
-  color: #ccd6f6;
+  color: var(--text-primary-light);
   line-height: 1.1;
 }
 
@@ -55,6 +65,17 @@ button {
 section {
   margin: 0 auto;
   padding: 100px 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--background-dark);
+    color: var(--text-secondary-dark);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary-dark);
+  }
 }
 
 /* Import Font Awesome for icons */

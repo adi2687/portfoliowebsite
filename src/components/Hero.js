@@ -42,16 +42,6 @@ const Hero = () => {
         <FloatingShapes />
       </div>
       <div className="hero-content">
-        <div className="hero-image-container">
-          <div className="hero-image-wrapper">
-            <img 
-              src="/mypic.jpeg" 
-              alt="Aditya Kurani" 
-              className="hero-image"
-            />
-            <div className="image-frame"></div>
-          </div>
-        </div>
         <div className="hero-text">
           <p className="intro animate-on-scroll">Hi, I'm</p>
           <h1 className="name animate-on-scroll" ref={nameRef}>
@@ -65,6 +55,16 @@ const Hero = () => {
               I'm a dedicated student at IIIT Nagpur with a strong passion for software development.
               Currently, I'm focused on building full-stack applications and enhancing my problem-solving skills.
             </p>
+          </div>
+        </div>
+        <div className="hero-image-container">
+          <div className="hero-image-wrapper">
+            <img 
+              src="/mypic.jpeg" 
+              alt="Aditya Kurani" 
+              className="hero-image"
+            />
+            <div className="image-frame"></div>
           </div>
         </div>
         <div className="cta-buttons animate-on-scroll" ref={ctaRef}>

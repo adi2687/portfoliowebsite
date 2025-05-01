@@ -9,12 +9,12 @@ const Projects = () => {
   const projects = [
     {
       title: 'Nova',
-      description: 'A comprehensive e-commerce platform built with React Native, featuring real-time product tracking, secure payment integration, and personalized shopping experiences with AI-powered recommendations.',
+      description: 'A comprehensive e-commerce platform built with Python, featuring real-time product tracking, secure payment integration, and personalized shopping experiences with AI-powered recommendations.',
       tech: ['Python','Google API','Google calendar','Google maps'],
       links: {
         github: 'https://github.com/adi2687/Nova',
-        live: 'https://nova-shop.netlify.app',
-        linkedin: 'https://www.linkedin.com/in/aditya-kurani-818668176/'
+        live: false,
+        linkedin: 'https://www.linkedin.com/posts/aditya-kurani-818668176_ai-innovation-nextgentech-activity-7290479530417258496-Sb_7?utm_source=share&utm_medium=member_desktop&rcm=ACoAACm-iJQBHeUeuiQJdzLWnGL5zXLGTL0fUjQ'
       },
       featured: true,
       category: 'mobile',
@@ -26,9 +26,9 @@ const Projects = () => {
       description: 'A React Native mobile app version of Outfit-AI, featuring weather-based outfit recommendations, AI-powered fashion advice, digital wardrobe management, and shopping integration. The app provides a seamless mobile experience with offline capabilities and push notifications.',
       tech: ['React Native', 'Node.js', 'MongoDB', 'Express', 'Gemini AI', 'Socket.io', 'Expo'],
       links: {
-        github: 'https://github.com/adi2687/OutFit-AI',
-        live: 'https://outfit-ai.com',
-        linkedin: 'https://www.linkedin.com/in/aditya-kurani-818668176/'
+        github: 'https://github.com/adi2687/OutFitAI-app',
+        live: 'https://outfit-ai-liart.vercel.app/download',
+        linkedin: 'https://www.linkedin.com/posts/naresh-mahiya-1ba039254_fashiontech-ai-reactnative-ugcPost-7321492850695716864-B8eE?utm_source=share&utm_medium=member_desktop&rcm=ACoAACm-iJQBHeUeuiQJdzLWnGL5zXLGTL0fUjQ'
       },
       featured: false,
       category: 'mobile',
@@ -50,8 +50,8 @@ const Projects = () => {
       ],
       links: {
         github: 'https://github.com/adi2687/OutFit-AI',
-        live: 'https://outfit-ai.com',
-        linkedin: 'https://www.linkedin.com/in/aditya-kurani-818668176/'
+        live: 'https://outfit-ai-liart.vercel.app',
+        linkedin: 'https://www.linkedin.com/posts/aditya-kurani-818668176_introducing-outfitai-try-outfitai-https-activity-7317743940403613696-6Exw?utm_source=share&utm_medium=member_desktop&rcm=ACoAACm-iJQBHeUeuiQJdzLWnGL5zXLGTL0fUjQ'
       },
       featured: true,
       category: 'ai',
@@ -64,8 +64,8 @@ const Projects = () => {
       tech: ['PHP/Hack', 'SQL', 'WebSocket', 'JavaScript'],
       links: {
         github: 'https://github.com/adi2687/OnlineAppointment',
-        live: 'https://appointment-interface.netlify.app',
-        linkedin: 'https://www.linkedin.com/in/aditya-kurani-818668176/'
+        live: false,
+        linkedin: 'https://www.linkedin.com/posts/aditya-kurani-818668176_hackathon-medicaltech-webdevelopment-activity-7251676282919260161-v33C?utm_source=share&utm_medium=member_desktop&rcm=ACoAACm-iJQBHeUeuiQJdzLWnGL5zXLGTL0fUjQ'
       },
       featured: true,
       category: 'web',
@@ -78,7 +78,7 @@ const Projects = () => {
       tech: ['PHP/Hack', 'SQL', 'JavaScript', 'WebSocket'],
       links: {
         github: 'https://github.com/adi2687/SocialMedia',
-        live: 'https://social-platform-connect.netlify.app',
+        live: false,
         linkedin: 'https://www.linkedin.com/in/aditya-kurani-818668176/'
       },
       featured: true,
@@ -87,32 +87,18 @@ const Projects = () => {
       image: '/friendify.png'
     },
     {
-      title: 'Digital Farming Assistance',
+      title: 'Dhaango',
       description: 'A scalable web application aimed at improving farmer productivity by enabling real-time communication, providing access to essential tools and updates on schemes.',
       tech: ['Hack', 'SQL', 'OAuth 2.0', 'REST APIs'],
       links: {
-        github: 'https://github.com/adi2687/Dhsango',
-        live: 'https://digital-farming-assist.netlify.app',
-        linkedin: 'https://www.linkedin.com/in/aditya-kurani-818668176/'
+        github: 'https://github.com/adi2687/Dhaango',
+        live: false,
+        linkedin: 'https://www.linkedin.com/posts/aksh8t_dhaango-empoweringfarmers-agritech-ugcPost-7256973678339309568-tVja?utm_source=share&utm_medium=member_desktop&rcm=ACoAACm-iJQBHeUeuiQJdzLWnGL5zXLGTL0fUjQ'
       },
       featured: false,
       category: 'web',
       icon: 'fas fa-seedling',
       image: '/dhaango.png'
-    },
-    {
-      title: 'Virtual Voice Assistant',
-      description: 'An AI assistant with voice and text commands for system control, scheduling, and automation. Integrated with Google Calendar for reminders, task management, and media control.',
-      tech: ['Python', 'Google API', 'AI/ML'],
-      links: {
-        github: 'https://github.com/adi2687/VoiceAssistant',
-        live: 'https://virtual-voice-assist.netlify.app',
-        linkedin: 'https://www.linkedin.com/in/aditya-kurani-818668176/'
-      },
-      featured: false,
-      category: 'ai',
-      icon: 'fas fa-robot',
-      image: '/nova.png'
     }
   ];
 
@@ -178,15 +164,17 @@ const Projects = () => {
                     >
                       <i className="fab fa-github"></i>
                     </a>
-                    <a 
-                      href={project.links.live} 
-                      aria-label="Live Demo" 
-                      className="icon-link"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <i className="fas fa-external-link-alt"></i>
-                    </a>
+                    {project.links.live && (
+                      <a 
+                        href={project.links.live} 
+                        aria-label="Live Demo" 
+                        className="icon-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <i className="fas fa-external-link-alt"></i>
+                      </a>
+                    )}
                     <a 
                       href={project.links.linkedin} 
                       aria-label="LinkedIn Profile" 
@@ -221,7 +209,6 @@ const Projects = () => {
           </h3>
           
           <div className="project-filter">
-          
             <button 
               className={`filter-btn ${activeTab === 'all' ? 'active' : ''}`}
               onClick={() => setActiveTab('all')}
@@ -242,13 +229,6 @@ const Projects = () => {
             >
               <span>Mobile Apps</span>
               <span className="filter-count">{projects.filter(p => !p.featured && p.category === 'mobile').length}</span>
-            </button>
-            <button 
-              className={`filter-btn ${activeTab === 'ai' ? 'active' : ''}`}
-              onClick={() => setActiveTab('ai')}
-            >
-              {/* <span>AI/ML</span>
-              <span className="filter-count">{projects.filter(p => !p.featured && p.category === 'ai').length}</span> */}
             </button>
           </div>
           
@@ -281,15 +261,17 @@ const Projects = () => {
                       >
                         <i className="fab fa-github"></i>
                       </a>
-                      <a 
-                        href={project.links.live} 
-                        aria-label="Live Demo" 
-                        className="icon-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <i className="fas fa-external-link-alt"></i>
-                      </a>
+                      {project.links.live && (
+                        <a 
+                          href={project.links.live} 
+                          aria-label="Live Demo" 
+                          className="icon-link"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <i className="fas fa-external-link-alt"></i>
+                        </a>
+                      )}
                       <a 
                         href={project.links.linkedin} 
                         aria-label="LinkedIn Profile" 

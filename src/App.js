@@ -6,7 +6,7 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import ThemeToggle from './components/ThemeToggle';
+// import ThemeToggle from './components/ThemeToggle';
 import CustomCursor from './components/CustomCursor';
 import AnimatedBackground from './components/AnimatedBackground';
 import emailjs from 'emailjs-com';
@@ -47,7 +47,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
-      <ThemeToggle />
+      {/* <ThemeToggle /> */}
       <CustomCursor />
     </div>
   );
