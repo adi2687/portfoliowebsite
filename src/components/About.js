@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import './About.css';
 import Timeline from './Timeline';
 
+
 const About = () => {
   const aboutRef = useRef(null);
   const textRef = useRef(null);
@@ -70,6 +71,7 @@ const About = () => {
                 I'm committed to continuously expanding my technical knowledge to adapt to evolving industry trends. When I'm not coding, you can find me participating in hackathons (ranked 5th nationally!) or working on new project ideas.
               </p>
             </div>
+
           </div>
           
           
@@ -137,6 +139,7 @@ const About = () => {
               </div>
             </div>
           </div>
+
         </div>
         
         <Timeline />
