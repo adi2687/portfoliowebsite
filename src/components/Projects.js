@@ -11,7 +11,7 @@ const Projects = () => {
     {
       title: 'NOVA',
       description: 'An AI-powered personal assistant with voice control, app management, system controls, Google Calendar integration, image analysis, real-time translation, chatbot, search capabilities, music control, and productivity automation. Experience hands-free digital interaction with natural language understanding and personalized assistance.',
-      tech: ['Python','Google API','Google calendar','Google maps', 'Natural Language Processing', 'Machine Learning', 'Speech Recognition'],
+      tech: ['Python','Google API','Google calendar','Google maps'],
       links: {
         github: 'https://github.com/adi2687/Nova',
         live: false,
@@ -131,33 +131,19 @@ const Projects = () => {
         entries.forEach((entry) => {
           const video = entry.target;
           if (entry.isIntersecting) {
+            // Set video to muted and play
             video.muted = true;
-            // Handle the play promise
-            const playPromise = video.play();
-            if (playPromise !== undefined) {
-              playPromise
-                .then(() => {
-                  // Set timeout to pause only if video successfully started playing
-                  setTimeout(() => {
-                    if (!video.paused) {
-                      video.pause();
-                    }
-                  }, 30000);
-                })
-                .catch(error => {
-                  // Silently handle any autoplay errors
-                  console.log("Autoplay prevented:", error);
-                });
-            }
+            video.play().catch(error => {
+              console.log("Video play failed:", error);
+            });
           } else {
-            // Pause video when not in view
             if (!video.paused) {
               video.pause();
             }
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.1 } // Lower threshold for earlier triggering
     );
 
     // Observe all video elements
@@ -210,6 +196,9 @@ const Projects = () => {
                     className="video-preview"
                     playsInline
                     muted
+                    autoPlay
+                    loop
+                    preload="auto"
                   >
                     Your browser does not support the video tag.
                   </video>
@@ -221,6 +210,9 @@ const Projects = () => {
                     className="video-preview"
                     playsInline
                     muted
+                    autoPlay
+                    loop
+                    preload="auto"
                   >
                     Your browser does not support the video tag.
                   </video>
@@ -232,6 +224,9 @@ const Projects = () => {
                     className="video-preview"
                     playsInline
                     muted
+                    autoPlay
+                    loop
+                    preload="auto"
                   >
                     Your browser does not support the video tag.
                   </video>

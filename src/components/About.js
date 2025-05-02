@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import './About.css';
 import Timeline from './Timeline';
 
@@ -8,6 +8,7 @@ const About = () => {
   const textRef = useRef(null);
   const imageRef = useRef(null);
   const skillsRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
   
   const skills = [
     { name: 'C/C++', level: 80, icon: 'fas fa-code' },
@@ -25,6 +26,11 @@ const About = () => {
   ];
   
   useEffect(() => {
+    // Simulate loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -46,6 +52,7 @@ const About = () => {
       elements.forEach((el) => {
         if (el) observer.unobserve(el);
       });
+      clearTimeout(timer);
     };
   }, []);
   
@@ -58,89 +65,93 @@ const About = () => {
         <h2 className="section-title">
           <span className="highlight">About Me</span>
         </h2>
-        <div className="about-content">
-          <div className="about-text" ref={textRef}>
-            <div className="text-content">
-              <p>
-                Hello! I'm <span className="highlight">Aditya Kurani</span>, a dedicated Computer Science student at IIIT Nagpur with a strong passion for software development. I'm proficient in multiple programming languages and actively seeking to tackle coding challenges to enhance my problem-solving skills.
-              </p>
-              <p>
-                My experience includes working as a Backend Developer Intern at eSubhalekha, where I built backend systems with PHP and Hack using MVC frameworks that supported up to 10,000 requests per day. I've also developed several full-stack applications including an AI-powered outfit recommendation app, an online appointment booking system, and a social media platform.
-              </p>
-              <p>
-                I'm committed to continuously expanding my technical knowledge to adapt to evolving industry trends. When I'm not coding, you can find me participating in hackathons (ranked 5th nationally!) or working on new project ideas.
-              </p>
-            </div>
-
+        {isLoading ? (
+          <div className="loading-dots">
+            <div className="loading-dot"></div>
+            <div className="loading-dot"></div>
+            <div className="loading-dot"></div>
           </div>
-          
-          
-          
-          <div className="skills-section" ref={skillsRef}>
-            <h3>Skills & Technologies</h3>
-            <div className="skills-container">
-              {skills.map((skill, index) => (
-                <div className="skill-item" key={index}>
-                  <div className="skill-icon">
-                    <i className={skill.icon}></i>
-                  </div>
-                  <div className="skill-info">
-                    <span className="skill-name">{skill.name}</span>
-                    <div className="skill-bar">
-                      <div 
-                        className="skill-progress" 
-                        style={{ width: `${skill.level}%` }}
-                      ></div>
-                    </div>
-                    <span className="skill-percentage">{skill.level}%</span>
-                  </div>
-                </div>
-              ))}
+        ) : (
+          <div className="about-content">
+            <div className="about-text" ref={textRef}>
+              <div className="text-content">
+                <p>
+                  Hello! I'm <span className="highlight">Aditya Kurani</span>, a dedicated Computer Science student at IIIT Nagpur with a strong passion for software development. I'm proficient in multiple programming languages and actively seeking to tackle coding challenges to enhance my problem-solving skills.
+                </p>
+                <p>
+                  My experience includes working as a Backend Developer Intern at eSubhalekha, where I built backend systems with PHP and Hack using MVC frameworks that supported up to 10,000 requests per day. I've also developed several full-stack applications including an AI-powered outfit recommendation app, an online appointment booking system, and a social media platform.
+                </p>
+                <p>
+                  I'm committed to continuously expanding my technical knowledge to adapt to evolving industry trends. When I'm not coding, you can find me participating in hackathons (ranked 5th nationally!) or working on new project ideas.
+                </p>
+              </div>
             </div>
             
-            <h3 className="sub-title">Awards & Achievements</h3>
-            <div className="awards-container">
-              <div className="award-item">
-                <div className="award-icon">
-                  <i className="fas fa-trophy"></i>
-                </div>
-                <div className="award-content">
-                  <h4>National Level Hackathon</h4>
-                  <p>Ranked 5th at the national level hackathon organised by IIITM Gwalior</p>
-                </div>
+            <div className="skills-section" ref={skillsRef}>
+              <h3>Skills & Technologies</h3>
+              <div className="skills-container">
+                {skills.map((skill, index) => (
+                  <div className="skill-item" key={index}>
+                    <div className="skill-icon">
+                      <i className={skill.icon}></i>
+                    </div>
+                    <div className="skill-info">
+                      <span className="skill-name">{skill.name}</span>
+                      <div className="skill-bar">
+                        <div 
+                          className="skill-progress" 
+                          style={{ width: `${skill.level}%` }}
+                        ></div>
+                      </div>
+                      <span className="skill-percentage">{skill.level}%</span>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className="award-item">
-                <div className="award-icon">
-                  <i className="fas fa-medal"></i>
+              
+              <h3 className="sub-title">Awards & Achievements</h3>
+              <div className="awards-container">
+                <div className="award-item">
+                  <div className="award-icon">
+                    <i className="fas fa-trophy"></i>
+                  </div>
+                  <div className="award-content">
+                    <h4>National Level Hackathon</h4>
+                    <p>Ranked 5th at the national level hackathon organised by IIITM Gwalior</p>
+                  </div>
                 </div>
-                <div className="award-content">
-                  <h4>Medecro.ai Hackathon</h4>
-                  <p>Reached the final round of a national hackathon hosted by Medecro.ai</p>
+                <div className="award-item">
+                  <div className="award-icon">
+                    <i className="fas fa-medal"></i>
+                  </div>
+                  <div className="award-content">
+                    <h4>Medecro.ai Hackathon</h4>
+                    <p>Reached the final round of a national hackathon hosted by Medecro.ai</p>
+                  </div>
                 </div>
-              </div>
-              <div className="award-item">
-                <div className="award-icon">
-                  <i className="fas fa-award"></i>
+                <div className="award-item">
+                  <div className="award-icon">
+                    <i className="fas fa-award"></i>
+                  </div>
+                  <div className="award-content">
+                    <h4>International Youth Math Competition</h4>
+                    <p>Qualified IYMC (International Youth Math Competition) 2023</p>
+                  </div>
                 </div>
-                <div className="award-content">
-                  <h4>International Youth Math Competition</h4>
-                  <p>Qualified IYMC (International Youth Math Competition) 2023</p>
-                </div>
-              </div>
-              <div className="award-item">
-                <div className="award-icon">
-                  <i className="fas fa-code"></i>
-                </div>
-                <div className="award-content">
-                  <h4>Leetcode</h4>
-                  <p>Solved 120+ questions on Leetcode</p>
-                  <a href="https://leetcode.com/u/aditya8798/" target="_blank" rel="noopener noreferrer">Visit Profile</a>
+                <div className="award-item">
+                  <div className="award-icon">
+                    <i className="fas fa-code"></i>
+                  </div>
+                  <div className="award-content">
+                    <h4>Leetcode</h4>
+                    <p>Solved 120+ questions on Leetcode</p>
+                    <a href="https://leetcode.com/u/aditya8798/" target="_blank" rel="noopener noreferrer">Visit Profile</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
-        </div>
+        )}
         
         <Timeline />
       </div>
