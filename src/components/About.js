@@ -65,13 +65,7 @@ const About = () => {
         <h2 className="section-title">
           <span className="highlight">About Me</span>
         </h2>
-        {isLoading ? (
-          <div className="loading-dots">
-            <div className="loading-dot"></div>
-            <div className="loading-dot"></div>
-            <div className="loading-dot"></div>
-          </div>
-        ) : (
+        
           <div className="about-content">
             <div className="about-text" ref={textRef}>
               <div className="text-content">
@@ -79,7 +73,7 @@ const About = () => {
                   Hello! I'm <span className="highlight">Aditya Kurani</span>, a dedicated Computer Science student at IIIT Nagpur with a strong passion for software development. I'm proficient in multiple programming languages and actively seeking to tackle coding challenges to enhance my problem-solving skills.
                 </p>
                 <p>
-                  My experience includes working as a Backend Developer Intern at eSubhalekha, where I built backend systems with PHP and Hack using MVC frameworks that supported up to 10,000 requests per day. I've also developed several full-stack applications including an AI-powered outfit recommendation app, an online appointment booking system, and a social media platform.
+                  My experience includes working as a Backend Developer Intern at eSubhalekha, where I built backend systems with PHP and Hack using MVC frameworks that supported up to 1,000 requests per day. I've also developed several full-stack applications including an AI-powered outfit recommendation app, an online appointment booking system, and a social media platform.
                 </p>
                 <p>
                   I'm committed to continuously expanding my technical knowledge to adapt to evolving industry trends. When I'm not coding, you can find me participating in hackathons (ranked 5th nationally!) or working on new project ideas.
@@ -151,7 +145,6 @@ const About = () => {
               </div>
             </div>
           </div>
-        )}
         
         <Timeline />
       </div>
