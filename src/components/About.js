@@ -2,7 +2,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import './About.css';
 import Timeline from './Timeline';
 
-
 const About = () => {
   const aboutRef = useRef(null);
   const textRef = useRef(null);
