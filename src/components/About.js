@@ -106,7 +106,7 @@ const About = () => {
                 </div>
                 <div className="award-content">
                   <h4>National Level Hackathon</h4>
-                  <p>Ranked 5th at the national level hackathon organised by IITM Gwalior</p>
+                  <p>Ranked 5th at the national level hackathon organised by IIITM Gwalior</p>
                 </div>
               </div>
               <div className="award-item">

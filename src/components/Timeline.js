@@ -45,18 +45,18 @@ const Timeline = () => {
       date: 'Jan 2025 - Feb 2025',
       title: 'Backend Developer Intern',
       subtitle: 'eSubhalekha',
-      description: 'Built backend systems with PHP and Hack using MVC frameworks, supporting up to 10,000 requests per day. Improved routing efficiency, reducing response times by 15% and optimizing server performance.',
+      description: 'Built backend systems with PHP and Hack using MVC frameworks, supporting up to 1,000 requests per day. Improved routing efficiency, reducing response times by 15% and optimizing server performance.',
       icon: 'fas fa-briefcase'
     },
     {
       date: '2024',
       title: 'National Level Hackathon',
-      subtitle: 'IITM Gwalior',
+      subtitle: 'IIITM Gwalior',
       description: 'Ranked 5th at the national level hackathon organised by IITM Gwalior.',
       icon: 'fas fa-trophy'
     },
     {
-      date: '2023',
+      date: '2024',
       title: 'Medecro.ai Hackathon',
       subtitle: 'National Hackathon',
       description: 'Reached the final round of a national hackathon hosted by Medecro.ai.',

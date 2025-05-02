@@ -5,20 +5,21 @@ const Projects = () => {
   const [activeTab, setActiveTab] = useState('all');
   const [hoveredProject, setHoveredProject] = useState(null);
   const projectsRef = useRef(null);
+  const videoRefs = useRef({});
   
   const projects = [
     {
-      title: 'Nova',
-      description: 'A comprehensive e-commerce platform built with Python, featuring real-time product tracking, secure payment integration, and personalized shopping experiences with AI-powered recommendations.',
-      tech: ['Python','Google API','Google calendar','Google maps'],
+      title: 'NOVA',
+      description: 'An AI-powered personal assistant with voice control, app management, system controls, Google Calendar integration, image analysis, real-time translation, chatbot, search capabilities, music control, and productivity automation. Experience hands-free digital interaction with natural language understanding and personalized assistance.',
+      tech: ['Python','Google API','Google calendar','Google maps', 'Natural Language Processing', 'Machine Learning', 'Speech Recognition'],
       links: {
         github: 'https://github.com/adi2687/Nova',
         live: false,
         linkedin: 'https://www.linkedin.com/posts/aditya-kurani-818668176_ai-innovation-nextgentech-activity-7290479530417258496-Sb_7?utm_source=share&utm_medium=member_desktop&rcm=ACoAACm-iJQBHeUeuiQJdzLWnGL5zXLGTL0fUjQ'
       },
       featured: true,
-      category: 'mobile',
-      icon: 'fas fa-shopping-bag',
+      category: 'ai',
+      icon: 'fas fa-robot',
       image: '/nova.png'
     },
     {
@@ -70,7 +71,8 @@ const Projects = () => {
       featured: true,
       category: 'web',
       icon: 'fas fa-calendar-check',
-      image: '/medpulse.jpg'
+      image: '/medpulsevid.mp4',
+      isVideo: true
     },
     {
       title: 'Friendify',
@@ -122,6 +124,58 @@ const Projects = () => {
     };
   }, [activeTab]);
 
+  useEffect(() => {
+    // Create intersection observer for videos
+    const videoObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            video.muted = true;
+            // Handle the play promise
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+              playPromise
+                .then(() => {
+                  // Set timeout to pause only if video successfully started playing
+                  setTimeout(() => {
+                    if (!video.paused) {
+                      video.pause();
+                    }
+                  }, 30000);
+                })
+                .catch(error => {
+                  // Silently handle any autoplay errors
+                  console.log("Autoplay prevented:", error);
+                });
+            }
+          } else {
+            // Pause video when not in view
+            if (!video.paused) {
+              video.pause();
+            }
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    // Observe all video elements
+    Object.values(videoRefs.current).forEach(video => {
+      if (video) {
+        videoObserver.observe(video);
+      }
+    });
+
+    return () => {
+      Object.values(videoRefs.current).forEach(video => {
+        if (video) {
+          videoObserver.unobserve(video);
+        }
+      });
+    };
+  }, []);
+
   const featuredProjects = projects.filter(project => project.featured);
   
   const filteredProjects = activeTab === 'all' 
@@ -147,7 +201,43 @@ const Projects = () => {
               onMouseLeave={() => setHoveredProject(null)}
             >
               <div className="project-image">
-                <img src={project.image} alt={`${project.title} preview`} />
+                {project.isVideo ? (
+                  <video 
+                    ref={el => videoRefs.current[project.title] = el}
+                    src={project.image} 
+                    controls 
+                    poster={project.image.replace('.mp4', '.jpg')}
+                    className="video-preview"
+                    playsInline
+                    muted
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                ) : project.title === 'NOVA' ? (
+                  <video 
+                    src="/novavideo.mp4" 
+                    controls 
+                    poster="/nova.png"
+                    className="video-preview"
+                    playsInline
+                    muted
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                ) : project.title === 'Medpulse' ? (
+                  <video 
+                    src="/medpulsevid.mp4" 
+                    controls 
+                    poster="/medpulse.jpg"
+                    className="video-preview"
+                    playsInline
+                    muted
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                ) : (
+                  <img src={project.image} alt={`${project.title} preview`} />
+                )}
               </div>
               <div className="project-content">
                 <div className="project-header">
@@ -192,6 +282,7 @@ const Projects = () => {
                 <div className="project-description">
                   <p>{project.description}</p>
                 </div>
+                
                 <ul className="project-tech-list">
                   {project.tech.map((tech, techIndex) => (
                     <li key={techIndex}>{tech}</li>
@@ -241,7 +332,7 @@ const Projects = () => {
                 onMouseLeave={() => setHoveredProject(null)}
               >
                 <div className="project-card-inner">
-                  {project.image && (
+                  {project.image && !project.isVideo && (
                     <div className="project-card-image">
                       <img src={project.image} alt={`${project.title} preview`} />
                     </div>
