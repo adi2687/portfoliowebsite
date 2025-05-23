@@ -71,6 +71,10 @@ const Header = () => {
             <span>Get In Touch</span>
             <i className="fas fa-paper-plane"></i>
           </a>
+          <a href="/Aditya Kurani Resume.pdf" className="resume-button" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>
+            <span>Resume</span>
+            <i className="fas fa-file-pdf"></i>
+          </a>
         </nav>
         
         <div 
