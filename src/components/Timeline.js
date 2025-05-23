@@ -52,7 +52,7 @@ const Timeline = () => {
       date: '2024',
       title: 'National Level Hackathon',
       subtitle: 'IIITM Gwalior',
-      description: 'Ranked 5th at the national level hackathon organised by IIITM Gwalior.',
+      description: 'Ranked 5th at the national level hackathon organised by IITM Gwalior.',
       icon: 'fas fa-trophy'
     },
     {
