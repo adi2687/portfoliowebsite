@@ -1,8 +1,27 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import './Timeline.css';
 
 const Timeline = () => {
   const timelineRef = useRef(null);
+  const [timelineData, setTimelineData] = useState([]);
+  
+  useEffect(() => {
+    const fetchTimelineData = async () => {
+      try {
+        const response = await fetch(process.env.PUBLIC_URL + '/data/timeline.json');
+        if (!response.ok) {
+          throw new Error('Failed to load timeline data');
+        }
+        const data = await response.json();
+        console.log('Timeline data loaded:', data);
+        setTimelineData(data);
+      } catch (error) {
+        console.error('Error loading timeline data:', error);
+      }
+    };
+
+    fetchTimelineData();
+  }, []);
   
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -33,36 +52,7 @@ const Timeline = () => {
     };
   }, []);
   
-  const timelineData = [
-    {
-      date: 'Sept 2023 - June 2027',
-      title: 'IIIT Nagpur',
-      subtitle: 'Bachelors in Technology in Computer Science and Engineering',
-      description: 'Coursework: Data Structures and algorithms, Web Development, Computer Programming and OOPS. Current CGPA: 8.32',
-      icon: 'fas fa-graduation-cap'
-    },
-    {
-      date: 'Jan 2025 - Feb 2025',
-      title: 'Backend Developer Intern',
-      subtitle: 'eSubhalekha',
-      description: 'Built backend systems with PHP and Hack using MVC frameworks, supporting up to 1,000 requests per day. Improved routing efficiency, reducing response times by 15% and optimizing server performance.',
-      icon: 'fas fa-briefcase'
-    },
-    {
-      date: '2024',
-      title: 'National Level Hackathon',
-      subtitle: 'IIITM Gwalior',
-      description: 'Ranked 5th at the national level hackathon organised by IIITM Gwalior.',
-      icon: 'fas fa-trophy'
-    },
-    {
-      date: '2024',
-      title: 'Medecro.ai Hackathon',
-      subtitle: 'National Hackathon',
-      description: 'Reached the final round of a national hackathon hosted by Medecro.ai.',
-      icon: 'fas fa-medal'
-    }
-  ];
+  // Timeline data is now imported from timeline.json
   
   return (
     <div className="timeline-container" ref={timelineRef}>

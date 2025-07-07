@@ -2,9 +2,28 @@ import React, { useState, useEffect } from 'react';
 import './Header.css';
 
 const Header = () => {
+  const [config, setConfig] = useState({});
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+
+  // Fetch config data
+  useEffect(() => {
+    const fetchConfig = async () => {
+      try {
+        const response = await fetch(process.env.PUBLIC_URL + '/data/config.json');
+        if (!response.ok) {
+          throw new Error('Failed to load config');
+        }
+        const data = await response.json();
+        setConfig(data);
+      } catch (error) {
+        console.error('Error loading config:', error);
+      }
+    };
+
+    fetchConfig();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,7 +90,7 @@ const Header = () => {
             <span>Get In Touch</span>
             <i className="fas fa-paper-plane"></i>
           </a>
-          <a href="/Aditya Kurani Resume.pdf" className="resume-button" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>
+          <a href={`/${config.resumeFilename}`} className="resume-button" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>
             <span>Resume</span>
             <i className="fas fa-file-pdf"></i>
           </a>

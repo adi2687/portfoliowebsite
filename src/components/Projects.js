@@ -1,109 +1,88 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { FaGithub, FaExternalLinkAlt, FaLinkedin } from 'react-icons/fa';
+import { FiChevronRight, FiFilter, FiX } from 'react-icons/fi';
 import './Projects.css';
 
 const Projects = () => {
   const [activeTab, setActiveTab] = useState('all');
   const [hoveredProject, setHoveredProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const projectsRef = useRef(null);
   const videoRefs = useRef({});
-  
-  const projects = [
-    {
-      title: 'NOVA',
-      description: 'An AI-powered personal assistant with voice control, app management, system controls, Google Calendar integration, image analysis, real-time translation, chatbot, search capabilities, music control, and productivity automation. Experience hands-free digital interaction with natural language understanding and personalized assistance.',
-      tech: ['Python','Google API','Google calendar','Google maps'],
-      links: {
-        github: 'https://github.com/adi2687/Nova',
-        live: false,
-        linkedin: 'https://www.linkedin.com/posts/aditya-kurani-818668176_ai-innovation-nextgentech-activity-7290479530417258496-Sb_7?utm_source=share&utm_medium=member_desktop&rcm=ACoAACm-iJQBHeUeuiQJdzLWnGL5zXLGTL0fUjQ'
-      },
-      featured: true,
-      category: 'ai',
-      icon: 'fas fa-robot',
-      image: '/nova.png'
-    },
-    {
-      title: 'Outfit-AI Mobile',
-      description: 'A React Native mobile app version of Outfit-AI, featuring weather-based outfit recommendations, AI-powered fashion advice, digital wardrobe management, and shopping integration. The app provides a seamless mobile experience with offline capabilities and push notifications.',
-      tech: ['React Native', 'Node.js', 'MongoDB', 'Express', 'Gemini AI', 'Socket.io', 'Expo'],
-      links: {
-        github: 'https://github.com/adi2687/OutFitAI-app',
-        live: 'https://outfit-ai-liart.vercel.app/download',
-        linkedin: 'https://www.linkedin.com/posts/naresh-mahiya-1ba039254_fashiontech-ai-reactnative-ugcPost-7321492850695716864-B8eE?utm_source=share&utm_medium=member_desktop&rcm=ACoAACm-iJQBHeUeuiQJdzLWnGL5zXLGTL0fUjQ'
-      },
-      featured: false,
-      category: 'mobile',
-      icon: 'fas fa-mobile-alt',
-      image: '/outfitapp.jpg'
-    },
-    {
-      title: 'Outfit-AI',
-      description: 'A comprehensive fashion AI platform featuring weather-based outfit recommendations, AI-powered chatbot for fashion advice, digital wardrobe management, shopping integration with Amazon and Myntra, and image classification using Gemini AI. The platform includes features like outfit planning, social sharing, and a mobile-responsive design.',
-      tech: ['React.js', 'Node.js', 'MongoDB', 'Express', 'Gemini AI', 'Socket.io', 'Selenium', 'BeautifulSoup', 'Three.js'],
-      features: [
-        'Weather-based outfit recommendations using real-time data',
-        'AI-powered fashion advice chatbot',
-        'Digital wardrobe management with image classification',
-        'Shopping integration with Amazon and Myntra',
-        'Social sharing and outfit planning',
-        'Mobile-responsive design with React Native',
-        'Real-time updates and notifications'
-      ],
-      links: {
-        github: 'https://github.com/adi2687/OutFit-AI',
-        live: 'https://outfit-ai-liart.vercel.app',
-        linkedin: 'https://www.linkedin.com/posts/aditya-kurani-818668176_introducing-outfitai-try-outfitai-https-activity-7317743940403613696-6Exw?utm_source=share&utm_medium=member_desktop&rcm=ACoAACm-iJQBHeUeuiQJdzLWnGL5zXLGTL0fUjQ'
-      },
-      featured: true,
-      category: 'ai',
-      icon: 'fas fa-tshirt',
-      image: '/outfitaiweb.png'
-    },
-    {
-      title: 'Medpulse',
-      description: 'A web application that allows users to book doctor appointments and find the nearest clinic using geolocation, rate doctors, get prescriptions via email and chat with doctors.',
-      tech: ['PHP/Hack', 'SQL', 'WebSocket', 'JavaScript'],
-      links: {
-        github: 'https://github.com/adi2687/OnlineAppointment',
-        live: false,
-        linkedin: 'https://www.linkedin.com/posts/aditya-kurani-818668176_hackathon-medicaltech-webdevelopment-activity-7251676282919260161-v33C?utm_source=share&utm_medium=member_desktop&rcm=ACoAACm-iJQBHeUeuiQJdzLWnGL5zXLGTL0fUjQ'
-      },
-      featured: true,
-      category: 'web',
-      icon: 'fas fa-calendar-check',
-      image: '/medpulsevid.mp4',
-      isVideo: true
-    },
-    {
-      title: 'Friendify',
-      description: 'A full-stack social media application where users can sign up, post updates, add friends, share posts within their network, real-time messaging, story sharing, and media sharing.',
-      tech: ['PHP/Hack', 'SQL', 'JavaScript', 'WebSocket'],
-      links: {
-        github: 'https://github.com/adi2687/SocialMedia',
-        live: false,
-        linkedin: 'https://www.linkedin.com/in/aditya-kurani-818668176/'
-      },
-      featured: true,
-      category: 'web',
-      icon: 'fas fa-users',
-      image: '/friendify.png'
-    },
-    {
-      title: 'Dhaango',
-      description: 'A scalable web application aimed at improving farmer productivity by enabling real-time communication, providing access to essential tools and updates on schemes.',
-      tech: ['Hack', 'SQL', 'OAuth 2.0', 'REST APIs'],
-      links: {
-        github: 'https://github.com/adi2687/Dhaango',
-        live: false,
-        linkedin: 'https://www.linkedin.com/posts/aksh8t_dhaango-empoweringfarmers-agritech-ugcPost-7256973678339309568-tVja?utm_source=share&utm_medium=member_desktop&rcm=ACoAACm-iJQBHeUeuiQJdzLWnGL5zXLGTL0fUjQ'
-      },
-      featured: false,
-      category: 'web',
-      icon: 'fas fa-seedling',
-      image: '/dhaango.png'
-    }
-  ];
+  const modalRef = useRef(null);
+  const [projects, setProjects] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
+  // Close modal when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        setIsModalOpen(false);
+      }
+    };
+
+    if (isModalOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'auto';
+    };
+  }, [isModalOpen]);
+  
+  // Fetch projects data
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        console.log('Loading projects data...');
+        const response = await fetch(process.env.PUBLIC_URL + '/data/projects.json');
+        if (!response.ok) {
+          throw new Error('Failed to load projects');
+        }
+        const data = await response.json();
+        
+        if (Array.isArray(data)) {
+          console.log(`Loaded ${data.length} projects`);
+          setProjects(data);
+        } else {
+          console.error('Invalid projects data format:', data);
+        }
+      } catch (error) {
+        console.error('Error loading projects:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+  
+  // Handle project click
+  const handleProjectClick = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  // Close modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  // Separate featured and other projects
+  const featuredProjects = projects.filter(project => project.featured);
+  const otherProjects = projects.filter(project => !project.featured);
+  
+  // Filter projects based on active tab
+  const filteredProjects = activeTab === 'all' 
+    ? otherProjects 
+    : otherProjects.filter(project => project.category === activeTab);
+  
+  
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -162,14 +141,91 @@ const Projects = () => {
     };
   }, []);
 
-  const featuredProjects = projects.filter(project => project.featured);
-  
-  const filteredProjects = activeTab === 'all' 
-    ? projects.filter(project => !project.featured)
-    : projects.filter(project => !project.featured && project.category === activeTab);
+
+
 
   return (
     <section id="projects" className="projects" ref={projectsRef}>
+      {/* Project Details Modal */}
+      {isModalOpen && selectedProject && (
+        <div className={`modal-overlay ${selectedProject.isFullScreen ? 'fullscreen' : ''}`}>
+          <div 
+            className={`project-modal ${selectedProject.isFullScreen ? 'fullscreen' : ''}`} 
+            ref={modalRef}
+          >
+            {!selectedProject.isFullScreen && (
+              <button className="close-button" onClick={closeModal}>&times;</button>
+            )}
+            <div className="modal-content">
+              <div className="modal-header">
+                <h2>{selectedProject.title}</h2>
+                <div className="project-links">
+                  {selectedProject.links.github && (
+                    <a href={selectedProject.links.github} target="_blank" rel="noopener noreferrer">
+                      <FaGithub /> GitHub
+                    </a>
+                  )}
+                  {selectedProject.links.live && selectedProject.links.live !== 'false' && (
+                    <a href={selectedProject.links.live} target="_blank" rel="noopener noreferrer">
+                      <FaExternalLinkAlt /> Live Demo
+                    </a>
+                  )}
+                  {selectedProject.links.linkedin && (
+                    <a href={selectedProject.links.linkedin} target="_blank" rel="noopener noreferrer">
+                      <FaLinkedin /> LinkedIn
+                    </a>
+                  )}
+                </div>
+              </div>
+                  
+                  <div className="modal-body">
+                    <div className="project-image-container">
+                      {selectedProject.isVideo ? (
+                        <video 
+                          src={selectedProject.image} 
+                          autoPlay 
+                          loop 
+                          muted 
+                          playsInline
+                          className="project-media"
+                        />
+                      ) : (
+                        <img 
+                          src={selectedProject.image} 
+                          alt={selectedProject.title} 
+                          className="project-media"
+                        />
+                      )}
+                    </div>
+                    
+                    <div className="project-details">
+                      <p className="project-description">{selectedProject.description}</p>
+                      
+                      <div className="project-tech">
+                        <h4>Technologies:</h4>
+                        <div className="tech-tags">
+                          {selectedProject.tech.map((tech, index) => (
+                            <span key={index} className="tech-tag">{tech}</span>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      {selectedProject.features && (
+                        <div className="project-features">
+                          <h4>Key Features:</h4>
+                          <ul>
+                            {selectedProject.features.map((feature, index) => (
+                              <li key={index}>{feature}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="projects-background">
         <div className="projects-particles"></div>
       </div>
@@ -185,6 +241,7 @@ const Projects = () => {
               key={index}
               onMouseEnter={() => setHoveredProject(index)}
               onMouseLeave={() => setHoveredProject(null)}
+              onClick={() => handleProjectClick(project)}
             >
               <div className="project-image">
                 {project.isVideo ? (
@@ -234,6 +291,7 @@ const Projects = () => {
                   <img src={project.image} alt={`${project.title} preview`} />
                 )}
               </div>
+              
               <div className="project-content">
                 <div className="project-header">
                   <div className="project-icon">
@@ -271,6 +329,7 @@ const Projects = () => {
                     </a>
                   </div>
                 </div>
+                
                 <h3 className="project-title">
                   <span className="highlight">{project.title}</span>
                 </h3>

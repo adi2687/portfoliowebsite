@@ -1,0 +1,14 @@
+[
+  { "name": "C/C++", "level": 80, "icon": "fas fa-code" },
+  { "name": "JavaScript", "level": 92, "icon": "fab fa-js" },
+  { "name": "Python", "level": 85, "icon": "fab fa-python" },
+  { "name": "PHP/Hack", "level": 88, "icon": "fab fa-php" },
+  { "name": "React JS", "level": 90, "icon": "fab fa-react" },
+  { "name": "React Native", "level": 82, "icon": "fab fa-react" },
+  { "name": "Node.js", "level": 88, "icon": "fab fa-node-js" },
+  { "name": "Express JS", "level": 86, "icon": "fab fa-node" },
+  { "name": "HTML/CSS", "level": 90, "icon": "fab fa-html5" },
+  { "name": "SQL/MongoDB", "level": 85, "icon": "fas fa-database" },
+  { "name": "REST APIs", "level": 88, "icon": "fas fa-network-wired" },
+  { "name": "WebSocket", "level": 80, "icon": "fas fa-plug" }
+]

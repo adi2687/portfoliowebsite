@@ -1,27 +1,78 @@
 import React, { useRef, useEffect, useState } from 'react';
 import './About.css';
 import Timeline from './Timeline';
+
 const About = () => {
   const aboutRef = useRef(null);
   const textRef = useRef(null);
   const imageRef = useRef(null);
   const skillsRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
-  
-  const skills = [
-    { name: 'C/C++', level: 80, icon: 'fas fa-code' },
-    { name: 'JavaScript', level: 92, icon: 'fab fa-js' },
-    { name: 'Python', level: 85, icon: 'fab fa-python' },
-    { name: 'PHP/Hack', level: 88, icon: 'fab fa-php' },
-    { name: 'React JS', level: 90, icon: 'fab fa-react' },
-    { name: 'React Native', level: 82, icon: 'fab fa-react' },
-    { name: 'Node.js', level: 88, icon: 'fab fa-node-js' },
-    { name: 'Express JS', level: 86, icon: 'fab fa-node' },
-    { name: 'HTML/CSS', level: 90, icon: 'fab fa-html5' },
-    { name: 'SQL/MongoDB', level: 85, icon: 'fas fa-database' },
-    { name: 'REST APIs', level: 88, icon: 'fas fa-network-wired' },
-    { name: 'WebSocket', level: 80, icon: 'fas fa-plug' }
-  ];
+  const [skills, setSkills] = useState([]);
+  const [awards, setAwards] = useState([]);
+  const [about, setAbout] = useState({ paragraphs: [] });
+
+  // Load data when component mounts
+  useEffect(() => {
+    let isMounted = true;
+    
+    const fetchData = async () => {
+      try {
+        console.log('Loading data...');
+        
+        // Fetch all data in parallel
+        const [skillsResponse, awardsResponse, aboutResponse] = await Promise.all([
+          fetch(process.env.PUBLIC_URL + '/data/skills.json'),
+          fetch(process.env.PUBLIC_URL + '/data/awards.json'),
+          fetch(process.env.PUBLIC_URL + '/data/about.json')
+        ]);
+        
+        if (!skillsResponse.ok || !awardsResponse.ok || !aboutResponse.ok) {
+          throw new Error('Failed to load one or more data files');
+        }
+        
+        const [skillsData, awardsData, aboutData] = await Promise.all([
+          skillsResponse.json(),
+          awardsResponse.json(),
+          aboutResponse.json()
+        ]);
+        
+        console.log('Data loaded:', { skillsData, awardsData, aboutData });
+        
+        if (!isMounted) return;
+        
+        // Set the loaded data
+        setSkills(skillsData);
+        setAwards(awardsData);
+        setAbout(aboutData);
+        
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error loading data:', error);
+        if (isMounted) {
+          setIsLoading(false);
+        }
+      }
+    };
+    
+    fetchData();
+    
+    // Listen for storage events to update when data changes in the editor
+    const handleStorageChange = (e) => {
+      if (e.key && e.key.startsWith('portfolio_')) {
+        console.log('Storage changed, refetching data...', e.key);
+        fetchData();
+      }
+    };
+    
+    window.addEventListener('storage', handleStorageChange);
+    
+    // Cleanup
+    return () => {
+      isMounted = false;
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
   
   useEffect(() => {
     // Simulate loading
@@ -67,15 +118,9 @@ const About = () => {
           <div className="about-content">
             <div className="about-text" ref={textRef}>
               <div className="text-content">
-                <p>
-                  Hello! I'm <span className="highlight">Aditya Kurani</span>, a dedicated Computer Science student at IIIT Nagpur with a strong passion for software development. I'm proficient in multiple programming languages and actively seeking to tackle coding challenges to enhance my problem-solving skills.
-                </p>
-                <p>
-                  My experience includes working as a Backend Developer Intern at eSubhalekha, where I built backend systems with PHP and Hack using MVC frameworks that supported up to 1,000 requests per day. I've also developed several full-stack applications including an AI-powered outfit recommendation app, an online appointment booking system, and a social media platform.
-                </p>
-                <p>
-                  I'm committed to continuously expanding my technical knowledge to adapt to evolving industry trends. When I'm not coding, you can find me participating in hackathons (ranked 5th nationally!) or working on new project ideas.
-                </p>
+                {about.paragraphs.map((paragraph, index) => (
+                  <p key={index} dangerouslySetInnerHTML={{ __html: paragraph }} />
+                ))}
               </div>
             </div>
             
@@ -103,43 +148,22 @@ const About = () => {
               
               <h3 className="sub-title">Awards & Achievements</h3>
               <div className="awards-container">
-                <div className="award-item">
-                  <div className="award-icon">
-                    <i className="fas fa-trophy"></i>
+                {awards.map((award, index) => (
+                  <div className="award-item" key={index}>
+                    <div className="award-icon">
+                      <i className={award.icon}></i>
+                    </div>
+                    <div className="award-content">
+                      <h4>{award.title}</h4>
+                      <p>{award.description}</p>
+                      {award.link && (
+                        <a href={award.link} target="_blank" rel="noopener noreferrer">
+                          Visit Profile
+                        </a>
+                      )}
+                    </div>
                   </div>
-                  <div className="award-content">
-                    <h4>National Level Hackathon</h4>
-                    <p>Ranked 5th at the national level hackathon organised by IIITM Gwalior</p>
-                  </div>
-                </div>
-                <div className="award-item">
-                  <div className="award-icon">
-                    <i className="fas fa-medal"></i>
-                  </div>
-                  <div className="award-content">
-                    <h4>Medecro.ai Hackathon</h4>
-                    <p>Reached the final round of a national hackathon hosted by Medecro.ai</p>
-                  </div>
-                </div>
-                <div className="award-item">
-                  <div className="award-icon">
-                    <i className="fas fa-award"></i>
-                  </div>
-                  <div className="award-content">
-                    <h4>International Youth Math Competition</h4>
-                    <p>Qualified IYMC (International Youth Math Competition) 2023</p>
-                  </div>
-                </div>
-                <div className="award-item">
-                  <div className="award-icon">
-                    <i className="fas fa-code"></i>
-                  </div>
-                  <div className="award-content">
-                    <h4>Leetcode</h4>
-                    <p>Solved 120+ questions on Leetcode</p>
-                    <a href="https://leetcode.com/u/aditya8798/" target="_blank" rel="noopener noreferrer">Visit Profile</a>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

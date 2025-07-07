@@ -1,0 +1,23 @@
+[
+  {
+    "title": "National Level Hackathon",
+    "description": "Ranked 5th at the national level hackathon organised by IIITM Gwalior",
+    "icon": "fas fa-trophy"
+  },
+  {
+    "title": "Medecro.ai Hackathon",
+    "description": "Reached the final round of a national hackathon hosted by Medecro.ai",
+    "icon": "fas fa-medal"
+  },
+  {
+    "title": "International Youth Math Competition",
+    "description": "Qualified IYMC (International Youth Math Competition) 2023",
+    "icon": "fas fa-award"
+  },
+  {
+    "title": "Leetcode",
+    "description": "Solved 180+ questions on Leetcode",
+    "icon": "fas fa-code",
+    "link": "https://leetcode.com/u/aditya8798/"
+  }
+]

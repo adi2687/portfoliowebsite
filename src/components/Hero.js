@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Hero.css';
+// Data will be loaded from the public directory
 import FloatingShapes from './FloatingShapes';
 import { FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
 
@@ -8,6 +9,33 @@ const Hero = () => {
   const taglineRef = useRef(null);
   const descriptionRef = useRef(null);
   const ctaRef = useRef(null);
+
+  const [hero, setHero] = useState({ description: 'Loading...' });
+
+  useEffect(() => {
+    const fetchHeroData = async () => {
+      try {
+        const response = await fetch(process.env.PUBLIC_URL + '/data/hero.json');
+        if (!response.ok) {
+          throw new Error('Failed to load hero data');
+        }
+        const data = await response.json();
+        console.log('Hero data loaded:', data);
+        setHero(data);
+      } catch (error) {
+        console.error('Error loading hero data:', error);
+      }
+    };
+
+    fetchHeroData();
+
+    const handleStorageChange = () => {
+      fetchHeroData();
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -61,10 +89,7 @@ const Hero = () => {
             <span className="typing-text">Computer Science Student & Developer</span>
           </h2>
           <div className="description animate-on-scroll" ref={descriptionRef}>
-            <p>
-              I'm a dedicated student at IIIT Nagpur with a strong passion for software development.
-              Currently, I'm focused on building full-stack applications and enhancing my problem-solving skills.
-            </p>
+            <p>{hero.description}</p>
           </div>
           <div className="cta-buttons animate-on-scroll" ref={ctaRef}>
             <a href="#projects" className="cta-button primary">
