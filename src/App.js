@@ -7,7 +7,6 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import JsonEditor from './components/JsonEditor';
 // import ThemeToggle from './components/ThemeToggle';
 import CustomCursor from './components/CustomCursor';
 import AnimatedBackground from './components/AnimatedBackground';
@@ -56,12 +55,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/edit/:file?" element={
-          <div className="App">
-            <JsonEditor />
-          </div>
-        } />
-        <Route path="/" element={
+<Route path="/" element={
           <div className="App">
             <CustomCursor />
             <AnimatedBackground />
@@ -75,8 +69,7 @@ function App() {
             <Footer />
           </div>
         } />
-        <Route path="/editor" element={<JsonEditor />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+<Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );
