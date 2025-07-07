@@ -46,10 +46,16 @@ function App() {
       });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check on initial load
+    // Store the handler in a variable
+    const scrollHandler = handleScroll;
     
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', scrollHandler);
+    scrollHandler(); // Check on initial load
+    
+    // Cleanup function
+    return () => {
+      window.removeEventListener('scroll', scrollHandler);
+    };
   }, []);
 
   return (
