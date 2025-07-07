@@ -7,7 +7,19 @@
       "Google API",
       "Google calendar API",
       "Google maps API",
-      "pyttsx3"
+      "pyttsx3",
+      "SpeechRecognition",
+      "Google gemini api"
+    ],
+    "features": [
+      "Voice-controlled interface with natural language processing",
+      "Smart calendar management with Google Calendar integration",
+      "Real-time translation between multiple languages",
+      "Image analysis and object recognition",
+      "System controls for automation and productivity",
+      "Music and media playback control",
+      "Web search and information retrieval",
+      "Personalized responses using machine learning"
     ],
     "links": {
       "github": "https://github.com/adi2687/Nova",
@@ -31,6 +43,15 @@
       "Gemini AI",
       "Socket.io",
       "Expo"
+    ],
+    "features": [
+      "Mobile-optimized interface with smooth animations",
+      "Offline access to saved outfits and wardrobe",
+      "Push notifications for weather-based recommendations",
+      "Barcode scanning for clothing items",
+      "Social sharing of outfits",
+      "Dark/light theme support",
+      "Biometric authentication for security"
     ],
     "links": {
       "github": "https://github.com/adi2687/aiWardrobe",
@@ -83,7 +104,18 @@
       "PHP/Hack",
       "SQL",
       "WebSocket",
-      "JavaScript"
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "features": [
+      "Real-time doctor appointment booking system",
+      "Clinic locator with geolocation services",
+      "Secure patient-doctor messaging",
+      "Digital prescription management",
+      "Doctor rating and review system",
+      "Email notifications and reminders",
+      "Responsive design for all devices"
     ],
     "links": {
       "github": "https://github.com/adi2687/Appointment_booking",
@@ -104,7 +136,18 @@
       "PHP/Hack",
       "SQL",
       "JavaScript",
-      "WebSocket"
+      "WebSocket",
+      "HTML",
+      "CSS"
+    ],
+    "features": [
+      "User authentication and profile management",
+      "Real-time news feed with posts and stories",
+      "Friend request and connection system",
+      "Instant messaging with WebSocket",
+      "Media upload and sharing",
+      "Like, comment, and share functionality",
+      "Responsive design for all devices"
     ],
     "links": {
       "github": "https://github.com/adi2687/projects",
@@ -122,7 +165,17 @@
     "tech": [
       "MERN",
       "OAuth 2.0",
-      "REST APIs"
+      "REST APIs",
+      "Socket.io"
+    ],
+    "features": [
+      "End-to-end encrypted messaging",
+      "Voice-to-text message transcription",
+      "Media sharing and preview",
+      "Message reactions and replies",
+      "Online/offline status",
+      "Message read receipts",
+      "Optimized for low-bandwidth connections"
     ],
     "links": {
       "github": "https://github.com/adi2687/whisperlog",
@@ -142,6 +195,15 @@
       "SQL",
       "OAuth 2.0",
       "REST APIs"
+    ],
+    "features": [
+      "Farmer community platform",
+      "Real-time weather updates and alerts",
+      "Government scheme notifications",
+      "Crop price tracking",
+      "Expert advice and Q&A forum",
+      "Multi-language support",
+      "Offline functionality for rural areas"
     ],
     "links": {
       "github": "https://github.com/adi2687/Dhaango",
