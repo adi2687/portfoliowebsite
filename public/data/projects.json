@@ -5,8 +5,9 @@
     "tech": [
       "Python",
       "Google API",
-      "Google calendar",
-      "Google maps"
+      "Google calendar API",
+      "Google maps API",
+      "pyttsx3"
     ],
     "links": {
       "github": "https://github.com/adi2687/Nova",
@@ -16,7 +17,8 @@
     "featured": true,
     "category": "ai",
     "icon": "fas fa-robot",
-    "image": "/nova.png"
+    "image": "/nova.png",
+    "video": "/novavideo.mp4"
   },
   {
     "title": "Outfit-AI Mobile",
@@ -71,7 +73,8 @@
     "featured": true,
     "category": "ai",
     "icon": "fas fa-tshirt",
-    "image": "/outfitaiweb.png"
+    "image": "/outfitaiweb.png",
+    "video": "/outfit.mp4"
   },
   {
     "title": "Medpulse",
@@ -91,7 +94,8 @@
     "category": "web",
     "icon": "fas fa-calendar-check",
     "image": "/medpulsevid.mp4",
-    "isVideo": true
+    "isVideo": true,
+    "video": "/medpulsevid.mp4"
   },
   {
     "title": "Friendify",

@@ -636,6 +636,8 @@
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 30px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card {
@@ -677,7 +679,8 @@
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.2;
-  margin: 0;
+  margin-bottom: 20px;
+  
 }
 
 .project-card-subtitle {
@@ -739,7 +742,7 @@
   font-size: 1.1rem;
   line-height: 1.6;
   color: var(--text-secondary);
-  margin: 0;
+  margin-bottom: 20px;
 }
 
 .project-card-footer {

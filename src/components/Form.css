@@ -31,6 +31,52 @@
 
 .form-group {
   margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.email-input {
+  padding-right: 120px !important; /* Make space for Google button */
+}
+
+.email-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.email-input {
+  width: 100%;
+  padding: 12px 48px 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: #4285f4;
+  box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+}
+
+/* Form Input Styling */
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: var(--background-light);
+  color: var(--text-primary-light);
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(72, 219, 251, 0.1);
 }
 
 .form-group input,

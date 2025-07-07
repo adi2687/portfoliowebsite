@@ -180,14 +180,15 @@ const Projects = () => {
                   
                   <div className="modal-body">
                     <div className="project-image-container">
-                      {selectedProject.isVideo ? (
+                      {selectedProject.video ? (
                         <video 
-                          src={selectedProject.image} 
+                          src={selectedProject.video} 
                           autoPlay 
                           loop 
                           muted 
                           playsInline
                           className="project-media"
+                          controls
                         />
                       ) : (
                         <img 
@@ -243,6 +244,7 @@ const Projects = () => {
               onMouseLeave={() => setHoveredProject(null)}
               onClick={() => handleProjectClick(project)}
             >
+              
               <div className="project-image">
                 {project.isVideo ? (
                   <video 
@@ -287,7 +289,20 @@ const Projects = () => {
                   >
                     Your browser does not support the video tag.
                   </video>
-                ) : (
+                ): project.title === 'Outfit-AI' ? (
+                  <video 
+                    src="/outfit.mp4" 
+                    controls 
+                    poster="/outfitaiweb.jpg"
+                    className="video-preview"
+                    playsInline
+                    muted
+                    autoPlay
+                    loop
+                    preload="auto"
+                  >
+                    Your browser does not support the video tag.
+                  </video> ) : (
                   <img src={project.image} alt={`${project.title} preview`} />
                 )}
               </div>
@@ -379,12 +394,15 @@ const Projects = () => {
           
           <div className="other-projects">
             {filteredProjects.map((project, index) => (
+              
               <div 
                 className="project-card" 
                 key={index}
                 onMouseEnter={() => setHoveredProject(index + featuredProjects.length)}
                 onMouseLeave={() => setHoveredProject(null)}
+                onClick={()=>handleProjectClick(project)}
               >
+                
                 <div className="project-card-inner">
                   {project.image && !project.isVideo && (
                     <div className="project-card-image">

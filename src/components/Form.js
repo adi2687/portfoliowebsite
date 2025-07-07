@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import './Form.css'; // Make sure this file exists and styles your form appropriately
+import './Form.css';
 
 const Form = () => {
   const form = useRef();
@@ -12,6 +12,7 @@ const Form = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -20,8 +21,16 @@ const Form = () => {
     }));
   };
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    if (!formData.email) {
+      setSubmitStatus('error');
+      return;
+    }
+    
     setIsSubmitting(true);
 
     try {
@@ -74,8 +83,9 @@ const Form = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="Your Email"
+            placeholder="your.email@example.com"
             required
+            className="form-input"
           />
         </div>
 
@@ -112,7 +122,7 @@ const Form = () => {
 
         {submitStatus === 'error' && (
           <div className="submit-message error">
-            ❌ Sorry, something went wrong. Please try again or email me directly at adityakurani26@gmail.com
+            ❌ Please sign in with Google to continue.
           </div>
         )}
       </form>
